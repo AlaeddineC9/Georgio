@@ -27,25 +27,25 @@ class Client
     /**
      * @var Collection<int, contact>
      */
-    #[ORM\OneToMany(targetEntity: contact::class, mappedBy: 'client')]
+    #[ORM\OneToMany(targetEntity: Contact::class, mappedBy: 'client')]
     private Collection $contact;
 
     /**
      * @var Collection<int, booking>
      */
-    #[ORM\OneToMany(targetEntity: booking::class, mappedBy: 'client')]
+    #[ORM\OneToMany(targetEntity: Booking::class, mappedBy: 'client')]
     private Collection $booking;
 
     /**
      * @var Collection<int, booking>
      */
-    #[ORM\OneToMany(targetEntity: booking::class, mappedBy: 'client')]
+    #[ORM\OneToMany(targetEntity: Galerie::class, mappedBy: 'client')]
     private Collection $galerie;
 
     /**
      * @var Collection<int, service>
      */
-    #[ORM\ManyToMany(targetEntity: service::class, inversedBy: 'clients')]
+    #[ORM\ManyToMany(targetEntity: Service::class, inversedBy: 'clients')]
     private Collection $service;
 
     public function __construct()

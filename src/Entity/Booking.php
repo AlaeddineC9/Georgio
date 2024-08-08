@@ -38,8 +38,7 @@ class Booking
     #[ORM\Column]
     private ?bool $is_verified = null;
 
-    #[ORM\ManyToOne(inversedBy: 'booking')]
-    private ?User $user = null;
+
 
     public function getId(): ?int
     {
@@ -142,15 +141,5 @@ class Booking
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
 
-    public function setUser(?User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 }

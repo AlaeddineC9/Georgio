@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -32,38 +30,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
-
-    /**
-     * @var Collection<int, contact>
-     */
-    #[ORM\OneToMany(targetEntity: contact::class, mappedBy: 'user')]
-    private Collection $contact;
-
-    /**
-     * @var Collection<int, booking>
-     */
-    #[ORM\OneToMany(targetEntity: booking::class, mappedBy: 'user')]
-    private Collection $booking;
-
-    /**
-     * @var Collection<int, galerie>
-     */
-    #[ORM\OneToMany(targetEntity: galerie::class, mappedBy: 'user')]
-    private Collection $galerie;
-
-    /**
-     * @var Collection<int, service>
-     */
-    #[ORM\OneToMany(targetEntity: service::class, mappedBy: 'user')]
-    private Collection $service;
-
-    public function __construct()
-    {
-        $this->contact = new ArrayCollection();
-        $this->booking = new ArrayCollection();
-        $this->galerie = new ArrayCollection();
-        $this->service = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -138,125 +104,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    /**
-     * @return Collection<int, contact>
-     */
-    public function getContact(): Collection
-    {
-        return $this->contact;
-    }
-
-    public function addContact(contact $contact): static
-    {
-        if (!$this->contact->contains($contact)) {
-            $this->contact->add($contact);
-            $contact->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeContact(contact $contact): static
-    {
-        if ($this->contact->removeElement($contact)) {
-            // set the owning side to null (unless already changed)
-            if ($contact->getUser() === $this) {
-                $contact->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, booking>
-     */
-    public function getBooking(): Collection
-    {
-        return $this->booking;
-    }
-
-    public function addBooking(booking $booking): static
-    {
-        if (!$this->booking->contains($booking)) {
-            $this->booking->add($booking);
-            $booking->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBooking(booking $booking): static
-    {
-        if ($this->booking->removeElement($booking)) {
-            // set the owning side to null (unless already changed)
-            if ($booking->getUser() === $this) {
-                $booking->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, galerie>
-     */
-    public function getGalerie(): Collection
-    {
-        return $this->galerie;
-    }
-
-    public function addGalerie(galerie $galerie): static
-    {
-        if (!$this->galerie->contains($galerie)) {
-            $this->galerie->add($galerie);
-            $galerie->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeGalerie(galerie $galerie): static
-    {
-        if ($this->galerie->removeElement($galerie)) {
-            // set the owning side to null (unless already changed)
-            if ($galerie->getUser() === $this) {
-                $galerie->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, service>
-     */
-    public function getService(): Collection
-    {
-        return $this->service;
-    }
-
-    public function addService(service $service): static
-    {
-        if (!$this->service->contains($service)) {
-            $this->service->add($service);
-            $service->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeService(service $service): static
-    {
-        if ($this->service->removeElement($service)) {
-            // set the owning side to null (unless already changed)
-            if ($service->getUser() === $this) {
-                $service->setUser(null);
-            }
-        }
-
-        return $this;
     }
 }

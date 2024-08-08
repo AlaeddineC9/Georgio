@@ -19,8 +19,7 @@ class Galerie
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'galerie')]
-    private ?User $user = null;
+    
 
     public function getId(): ?int
     {
@@ -51,15 +50,4 @@ class Galerie
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 }

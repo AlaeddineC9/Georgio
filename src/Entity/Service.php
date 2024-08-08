@@ -30,8 +30,7 @@ class Service
     #[ORM\ManyToMany(targetEntity: Client::class, mappedBy: 'service')]
     private Collection $clients;
 
-    #[ORM\ManyToOne(inversedBy: 'service')]
-    private ?User $user = null;
+
 
     public function __construct()
     {
@@ -106,15 +105,5 @@ class Service
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
+    
 }
