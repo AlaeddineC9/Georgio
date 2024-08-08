@@ -4,9 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Galerie;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class GalerieCrudController extends AbstractCrudController
 {
@@ -15,14 +15,21 @@ class GalerieCrudController extends AbstractCrudController
         return Galerie::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('description', 'Description'),
+            
+            ImageField::new('photo')
+                ->setBasePath('/uploads/galerie')
+                ->setLabel('Photo actuelle')
+                ->onlyOnIndex(), // Affiche l'image dans la liste
+
+            // Utilisation du champ pour l'upload de fichiers avec VichImageType
+            TextField::new('photoFile')
+                ->setFormType(VichImageType::class)
+                ->setLabel('Télécharger une nouvelle photo')
+                ->onlyOnForms(), // Afficher uniquement dans les formulaires
         ];
     }
-    */
 }

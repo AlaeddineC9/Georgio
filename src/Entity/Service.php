@@ -6,8 +6,11 @@ use App\Repository\ServiceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
+#[Vich\Uploadable]
 class Service
 {
     #[ORM\Id]
@@ -15,8 +18,11 @@ class Service
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
+
+    #[Vich\UploadableField(mapping: 'service_photos', fileNameProperty: 'photo')]
+    private ?File $photoFile = null;
 
     #[ORM\Column(length: 80)]
     private ?string $name = null;
@@ -24,18 +30,21 @@ class Service
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $updatedAt = null;
+
     /**
      * @var Collection<int, Client>
      */
     #[ORM\ManyToMany(targetEntity: Client::class, mappedBy: 'service')]
     private Collection $clients;
 
-
-
     public function __construct()
     {
         $this->clients = new ArrayCollection();
     }
+
+    // ... getters et setters ...
 
     public function getId(): ?int
     {
@@ -47,9 +56,25 @@ class Service
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): static
+    public function setPhoto(?string $photo): static
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getPhotoFile(): ?File
+    {
+        return $this->photoFile;
+    }
+
+    public function setPhotoFile(?File $photoFile = null): static
+    {
+        $this->photoFile = $photoFile;
+
+        if ($photoFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
 
         return $this;
     }
@@ -74,6 +99,18 @@ class Service
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -104,6 +141,4 @@ class Service
 
         return $this;
     }
-
-    
 }
