@@ -29,13 +29,13 @@ class Booking
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $special_request = null;
 
     #[ORM\ManyToOne(inversedBy: 'booking')]
     private ?Client $client = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $is_verified = null;
 
 
