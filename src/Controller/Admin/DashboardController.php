@@ -13,6 +13,8 @@ use App\Entity\Contact;
 use App\Entity\Booking;
 use App\Entity\Service;
 use App\Entity\User;
+use App\Entity\Category;
+use App\Entity\Menu;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -52,6 +54,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('contact', 'fa fa-bed', Contact::class);
         yield MenuItem::linkToCrud('booking', 'fa fa-bed', Booking::class);
         yield MenuItem::linkToCrud('service', 'fa fa-bed', Service::class);
+        yield MenuItem::linkToCrud('Categories', 'fa fa-list', Category::class);
+        yield MenuItem::linkToCrud('Menu', 'fa fa-utensils', Menu::class);
+
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
