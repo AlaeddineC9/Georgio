@@ -11,3 +11,9 @@ vich_uploader:
             upload_destination: '%kernel.project_dir%/public/uploads/services'
             namer:
                 service: Vich\UploaderBundle\Naming\SmartUniqueNamer
+                
+        category_images:
+            uri_prefix: /uploads/categories
+            upload_destination: '%kernel.project_dir%/public/uploads/categories'
+            namer:
+                service: Vich\UploaderBundle\Naming\SmartUniqueNamer
