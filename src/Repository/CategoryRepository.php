@@ -16,22 +16,6 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-    /**
-     * Méthode pour récupérer toutes les catégories avec leurs menus (optionnel)
-     *
-     * return Category[] Returns an array of Category objects
-     */
-    // public function findAllWithMenus(): array
-    // {
-    //     return $this->createQueryBuilder('c')
-    //         ->leftJoin('c.menu', 'm')
-    //         ->addSelect('m')
-    //         ->orderBy('c.name', 'ASC')
-    //         ->getQuery()
-    //         ->getResult()
-    //     ;
-    // }
-
     //    /**
     //     * @return Category[] Returns an array of Category objects
     //     */
