@@ -48,11 +48,7 @@ class Client
     #[ORM\ManyToMany(targetEntity: Service::class, inversedBy: 'clients')]
     private Collection $service;
 
-    /**
-     * @var Collection<int, Category>
-     */
-    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'clients')]
-    private Collection $Category;
+
 
     public function __construct()
     {
@@ -218,27 +214,7 @@ class Client
         return $this;
     }
 
-    /**
-     * @return Collection<int, Category>
-     */
-    public function getCategory(): Collection
-    {
-        return $this->Category;
-    }
 
-    public function addCategory(Category $category): static
-    {
-        if (!$this->Category->contains($category)) {
-            $this->Category->add($category);
-        }
 
-        return $this;
-    }
 
-    public function removeCategory(Category $category): static
-    {
-        $this->Category->removeElement($category);
-
-        return $this;
-    }
 }

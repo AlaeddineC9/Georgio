@@ -37,11 +37,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var Collection<int, Category>
      */
     #[ORM\OneToMany(targetEntity: Category::class, mappedBy: 'user')]
-    private Collection $category;
+    private Collection $Category;
+
+   
 
     public function __construct()
     {
         $this->category = new ArrayCollection();
+        $this->Category = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -124,13 +127,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getCategory(): Collection
     {
-        return $this->category;
+        return $this->Category;
     }
 
     public function addCategory(Category $category): static
     {
-        if (!$this->category->contains($category)) {
-            $this->category->add($category);
+        if (!$this->Category->contains($category)) {
+            $this->Category->add($category);
             $category->setUser($this);
         }
 
@@ -139,7 +142,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeCategory(Category $category): static
     {
-        if ($this->category->removeElement($category)) {
+        if ($this->Category->removeElement($category)) {
             // set the owning side to null (unless already changed)
             if ($category->getUser() === $this) {
                 $category->setUser(null);
@@ -148,4 +151,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+
+
+
+
+
 }

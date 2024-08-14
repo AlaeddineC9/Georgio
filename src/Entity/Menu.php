@@ -22,8 +22,10 @@ class Menu
     #[ORM\Column]
     private ?float $prix = null;
 
-    #[ORM\ManyToOne(inversedBy: 'menu')]
+    #[ORM\ManyToOne(inversedBy: 'Menu')]
     private ?Category $category = null;
+
+
 
 
 
@@ -79,6 +81,8 @@ class Menu
 
         return $this;
     }
+
+    
 
 
 }
