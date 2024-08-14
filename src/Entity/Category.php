@@ -2,13 +2,12 @@
 
 namespace App\Entity;
 
+use App\Repository\CategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use App\Repository\CategoryRepository;
-
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[Vich\Uploadable]
@@ -16,70 +15,38 @@ class Category
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(length: 80)]
     private ?string $name = null;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private ?string $image = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $photo = null;
 
-    #[Vich\UploadableField(mapping: 'category_images', fileNameProperty: 'image')]
-    private ?File $imageFile = null;
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updateAt = null;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private ?\DateTimeInterface $updatedAt = null;
+    #[Vich\UploadableField(mapping: 'category_photos', fileNameProperty: 'photo')]
+    private ?File $photoFile = null;
+
+    #[ORM\ManyToOne(inversedBy: 'Category')]
+    private ?User $user = null;
 
     /**
-     * @var Collection<int, menu>
+     * @var Collection<int, Menu>
      */
     #[ORM\OneToMany(targetEntity: Menu::class, mappedBy: 'category')]
-    private Collection $menu;
-
-    /**
-     * @var Collection<int, Client>
-     */
-    #[ORM\ManyToMany(targetEntity: Client::class, mappedBy: 'Category')]
-    private Collection $clients;
-
-    #[ORM\ManyToOne(inversedBy: 'category')]
-    private ?User $user = null;
+    private Collection $Menu;
 
     public function __construct()
     {
-        $this->menu = new ArrayCollection();
-        $this->clients = new ArrayCollection();
-        $this->image = 'facade.jpg';
+        $this->Menu = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-    public function setImageFile(?File $imageFile = null): void
-    {
-        $this->imageFile = $imageFile;
-
-        if ($imageFile) {
-            $this->updatedAt = new \DateTimeImmutable();
-        }
-    }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): static
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -94,71 +61,38 @@ class Category
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getPhoto(): ?string
     {
-        return $this->image;
+        return $this->photo;
     }
 
-    public function setImage(string $image): self
+    public function setPhoto(?string $photo): static
     {
-        $this->image = $image ?: 'facade.jpg';
+        $this->photo = $photo;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, Menu>
-     */
-    public function getMenu(): Collection
+    public function getUpdateAt(): ?\DateTimeImmutable
     {
-        return $this->menu;
+        return $this->updateAt;
     }
 
-    public function addMenu(Menu $menu): static
+    public function setUpdateAt(?\DateTimeImmutable $updateAt): static
     {
-        if (!$this->menu->contains($menu)) {
-            $this->menu->add($menu);
-            $menu->setCategory($this);
-        }
+        $this->updateAt = $updateAt;
 
         return $this;
     }
 
-    public function removeMenu(Menu $menu): static
+    public function getPhotoFile(): ?File
     {
-        if ($this->menu->removeElement($menu)) {
-            // set the owning side to null (unless already changed)
-            if ($menu->getCategory() === $this) {
-                $menu->setCategory(null);
-            }
-        }
-
-        return $this;
+        return $this->photoFile;
     }
 
-    /**
-     * @return Collection<int, Client>
-     */
-    public function getClients(): Collection
+    public function setPhotoFile(?File $photoFile= null): static
     {
-        return $this->clients;
-    }
-
-    public function addClient(Client $client): static
-    {
-        if (!$this->clients->contains($client)) {
-            $this->clients->add($client);
-            $client->addCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeClient(Client $client): static
-    {
-        if ($this->clients->removeElement($client)) {
-            $client->removeCategory($this);
-        }
+        $this->photoFile = $photoFile;
 
         return $this;
     }
@@ -174,21 +108,34 @@ class Category
 
         return $this;
     }
-    public function __toString()
+
+    /**
+     * @return Collection<int, Menu>
+     */
+    public function getMenu(): Collection
     {
-        return $this->image;
+        return $this->Menu;
     }
-   public function removeUser(User $user): static
+
+    public function addMenu(Menu $menu): static
     {
-        if ($this->user->removeElement($user)) {
-            // set the owning side to null (unless already changed)
-            if ($user->getCategory() === $this) {
-                $user->setCategory(null);
-            }
+        if (!$this->Menu->contains($menu)) {
+            $this->Menu->add($menu);
+            $menu->setCategory($this);
         }
 
         return $this;
     }
 
- 
+    public function removeMenu(Menu $menu): static
+    {
+        if ($this->Menu->removeElement($menu)) {
+            // set the owning side to null (unless already changed)
+            if ($menu->getCategory() === $this) {
+                $menu->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
 }

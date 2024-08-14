@@ -1,17 +1,16 @@
 <?php
+
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
-use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 
 
 class CategoryCrudController extends AbstractCrudController
@@ -21,32 +20,21 @@ class CategoryCrudController extends AbstractCrudController
         return Category::class;
     }
 
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            integerField::new('id', 'ID')->onlyOnIndex(),
+            IntegerField::new('id', 'ID')->onlyOnIndex(), // ID affiché uniquement dans l'index
             TextField::new('name', 'Nom de la Catégorie'),
-            
-            ImageField::new('image')
-                ->setBasePath('/uploads/categories')
-                ->setUploadDir('public/uploads/categories')
-                ->setLabel('Image Actuelle')
-                ->setRequired(false),
-
-            
+            ImageField::new('photo')
+            ->setBasePath('/uploads/categories')
+            ->setLabel('Image Actuelle')
+            ->onlyOnIndex(), 
+            TextField::new('photoFile')
+            ->setFormType(VichImageType::class)
+            ->setLabel('Télécharger une nouvelle photo')
+            ->onlyOnForms(), 
         ];
     }
-    // public function configureActions(Actions $actions): Actions
-    // {
-    //     return $actions
-    //         ->add(Crud::PAGE_INDEX, Action::DETAIL);
-    // }
-    // public function deleteEntity(EntityManagerInterface $entityManager, $entityInstance): void
-    // {
-    //     if (!$entityInstance instanceof Category) {
-    //         throw new \LogicException('L\'entité doit être de type Category.');
-    //     }
-    
-    //     parent::deleteEntity($entityManager, $entityInstance);
-    // }
+
 }
