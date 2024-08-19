@@ -205,17 +205,21 @@ body {
 
 .carousel-control-prev, .carousel-control-next {
     position: absolute;
+    background-color: silver;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
 }
 
 .carousel-control-prev {
-    left: 0;
+    left: 100px;
 }
 
 .carousel-control-next {
-    right: 0;
+    right: 100px;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
@@ -382,6 +386,47 @@ body {
     
     margin-top: 60px;
     color: #6C846B;
+}
+
+.table-responsive {
+
+    margin-top: 60px;
+    margin-left: 0px;
+}
+/* .table-responsive h1{
+    font-size: 6rem;
+    font-weight: bold;
+    font-family: 'Jacques Francois Shadow', serif;
+    text-align: center;
+
+    margin-bottom: 2rem;
+    color: #6C846B;
+} */
+.alert{
+    margin-top: 60px;
+    margin-left: 0px;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.mb-3 {
+    display: flex;
+    justify-content: center;
+}
+/* Styles pour les messages d'erreur */
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 @media screen and (max-width: 768px) {
     .nav-links {
