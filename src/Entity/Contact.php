@@ -28,6 +28,9 @@ class Contact
     #[ORM\ManyToOne(inversedBy: 'contact')]
     private ?Client $client = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Contact')]
+    private ?User $user = null;
+
 
 
     public function getId(): ?int
@@ -91,6 +94,18 @@ class Contact
     public function setClient(?Client $client): static
     {
         $this->client = $client;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

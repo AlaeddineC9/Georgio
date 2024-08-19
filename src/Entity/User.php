@@ -39,12 +39,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Category::class, mappedBy: 'user')]
     private Collection $Category;
 
+    /**
+     * @var Collection<int, Contact>
+     */
+    #[ORM\OneToMany(targetEntity: Contact::class, mappedBy: 'user')]
+    private Collection $Contact;
+
    
 
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->Category = new ArrayCollection();
+        $this->Contact = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -146,6 +153,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($category->getUser() === $this) {
                 $category->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Contact>
+     */
+    public function getContact(): Collection
+    {
+        return $this->Contact;
+    }
+
+    public function addContact(Contact $contact): static
+    {
+        if (!$this->Contact->contains($contact)) {
+            $this->Contact->add($contact);
+            $contact->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(Contact $contact): static
+    {
+        if ($this->Contact->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getUser() === $this) {
+                $contact->setUser(null);
             }
         }
 
