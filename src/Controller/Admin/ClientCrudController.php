@@ -15,6 +15,7 @@ class ClientCrudController extends AbstractCrudController
         return Client::class;
     }
 
+    
     /*
     public function configureFields(string $pageName): iterable
     {
