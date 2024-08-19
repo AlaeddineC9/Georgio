@@ -26,7 +26,18 @@ class Booking
     #[ORM\Column]
     private ?int $nb_guest = null;
 
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private ?bool $isAccepted = null;
+
+    #[ORM\Column(type: 'boolean')]
+    private ?bool $canBook = true; // Ce champ contrôle si les réservations sont possibles
+
+    // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    // private ?\DateTimeInterface $date = null;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Assert\NotBlank(message: "La date est obligatoire.")]
+    #[Assert\GreaterThan('today', message: "La date de réservation doit être dans le futur.")]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -36,7 +47,7 @@ class Booking
     private ?Client $client = null;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $is_verified = null;
+    private ?bool $isVerified = null;
 
 
 
@@ -105,6 +116,30 @@ class Booking
         return $this;
     }
 
+    public function isAccepted(): ?bool
+{
+    return $this->isAccepted;
+}
+
+public function setIsAccepted(bool $isAccepted): static
+{
+    $this->isAccepted = $isAccepted;
+
+    return $this;
+}
+
+public function canBook(): ?bool
+{
+    return $this->canBook;
+}
+
+public function setCanBook(bool $canBook): static
+{
+    $this->canBook = $canBook;
+
+    return $this;
+}
+
     public function getSpecialRequest(): ?string
     {
         return $this->special_request;
@@ -131,14 +166,19 @@ class Booking
 
     public function isVerified(): ?bool
     {
-        return $this->is_verified;
+        return $this->isVerified;
     }
 
-    public function setVerified(bool $is_verified): static
+    public function setIsVerified(bool $isVerified): static
     {
-        $this->is_verified = $is_verified;
+        $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->phone_number;
     }
 
 
