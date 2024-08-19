@@ -23,15 +23,13 @@ class HomeController extends AbstractController
 
 
         $bookingRepository = $doctrine->getRepository(Booking::class);
-        $booking = $bookingRepository->findOneBy([]);
+        $bookingStatus = $bookingRepository->findOneBy([]);
 
-        
-        if (!$booking) {
-            // Créer un objet Booking par défaut si nécessaire
-            $booking = new Booking();
-            $booking->setCanBook(true); // Assurer une valeur par défaut si aucun enregistrement trouvé
+        if (!$bookingStatus) {
+            $bookingStatus = new Booking();
+            $bookingStatus->setCanBook(true); // Valeur par défaut si aucun enregistrement trouvé
         }
-        
+        $booking = new Booking();
         $form = $this->createForm(BookingType::class, $booking);
 
         $form->handleRequest($request);
@@ -82,6 +80,8 @@ class HomeController extends AbstractController
             'images' => $images,
             'booking' => $booking,
             'reservationForm' => $form->createView(),
+            'bookingStatus' => $bookingStatus, // Passer l'état général des réservations à la vue
+
         ]);
     }
 }

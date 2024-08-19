@@ -32,16 +32,18 @@ class DashboardController extends AbstractDashboardController
     {
         
         $bookings = $this->getPendingBookings($this->entityManager);
+        $bookingStatus = $this->getBookingStatus($this->entityManager);
 
         return $this->render('admin/dashboard.html.twig', [
             'bookings' => $bookings,
+            'bookingStatus' => $bookingStatus,
         ]);
     }
 
     private function getPendingBookings(EntityManagerInterface $entityManager): array
     {
         // Utilisation de l'EntityManager pour récupérer les réservations en attente
-        return $this->entityManager->getRepository(Booking::class)->findAll();
+        // return $this->entityManager->getRepository(Booking::class)->findAll();
         return $entityManager->getRepository(Booking::class)
             ->createQueryBuilder('b')
             ->orderBy('b.date', 'DESC') // Trier par date en ordre décroissant
@@ -49,6 +51,11 @@ class DashboardController extends AbstractDashboardController
             ->getResult();
     }
 
+    private function getBookingStatus(EntityManagerInterface $entityManager): ?Booking
+{
+    // Récupérer l'enregistrement spécifique pour l'activation
+    return $entityManager->getRepository(Booking::class)->findOneBy([]);
+}
     #[Route('/admin/confirm-booking/{id}', name: 'admin_confirm_booking')]
     public function confirmBooking(Request $request, Booking $booking): Response
     {
@@ -71,7 +78,7 @@ class DashboardController extends AbstractDashboardController
         return $this->redirectToRoute('admin');
     }
 
-     #[Route('/admin/toggle-booking-status', name: 'toggle_booking_status')]
+    #[Route('/admin/toggle-booking-status', name: 'toggle_booking_status')]
     public function toggleBookingStatus(EntityManagerInterface $entityManager): Response
     {
         $bookingRepository = $entityManager->getRepository(Booking::class);

@@ -8,13 +8,13 @@
     <div class="hero">
         <h1>Auberge Georgio</h1>
         <h2>Restaurant Italien</h2>
-         {% if booking and booking.canBook %}
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservationModal">
-                Réserver
-            </button>
-        {% else %}
-            <p>Les réservations sont actuellement désactivées.</p>
-        {% endif %}
+    {% if bookingStatus and bookingStatus.canBook %}
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservationModal">
+        Réserver
+    </button>
+{% else %}
+    <p>Les réservations sont actuellement désactivées.</p>
+{% endif %}
     </div>
 
     <!-- Modal -->

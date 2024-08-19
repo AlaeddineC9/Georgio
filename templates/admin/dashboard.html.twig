@@ -7,11 +7,15 @@
     <h1 class="bg-success text-white p-3 text-center">Gestion des Réservations</h1>
     
     <div class="d-flex justify-content-center">
-    {% if bookings[0] is defined and bookings[0].canBook %}
-        <a href="{{ path('toggle_booking_status') }}" class="btn btn-danger p-3 text-center">Désactiver les réservations</a>
+    {% if bookingStatus %}
+        <p class="text-center bold">Les réservations sont actuellement {{ bookingStatus.canBook ? 'activées' : 'désactivées' }}.</p>
     {% else %}
-        <a href="{{ path('toggle_booking_status') }}" class="btn btn-success p-3 text-center">Activer les réservations</a>
+        <p>Aucun statut de réservation trouvé.</p>
     {% endif %}
+
+    <a href="{{ path('toggle_booking_status') }}" class="btn btn-success p-3 text-center">
+        {{ bookingStatus.canBook ? 'Désactiver les Réservations' : 'Activer les Réservations' }}
+    </a>
 </div>
         <table class="table table-striped">
             <thead>
