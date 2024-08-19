@@ -428,6 +428,14 @@ body {
     border-radius: 5px;
     margin-bottom: 10px;
 }
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+    color: #6C846B;
+}
 @media screen and (max-width: 768px) {
     .nav-links {
         position: absolute;
