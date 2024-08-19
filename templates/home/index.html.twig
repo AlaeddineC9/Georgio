@@ -1,48 +1,79 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-{{ include('/component/navbar.html.twig') }}
+    {{ include('/component/navbar.html.twig') }}
 
-
-<div class="hero">
-    <h1>Auberge Georgio</h1>
-    <h2>Restaurant Italien</h2>
-    <button>Reserver</button>
-</div>
-<div class="info">
-<section>
-<H2>A PROPOS DE NOUS</H2>
-<p>Toute l’équipe de l’Auberge Georgio est heureuse de vous accueillir  dans un cadre chaleureux en plein cœur de la veille ville de Saint-Prix et vous propose une carte aux saveurs authentiques d'Italie.<br> 
-
-Perché en haut de la ville, vous aurez une vue imprenable sur tout Paris à quelques pas de là.<br> 
-Venez découvrir ce restaurant de caractère et laissez vous tenter pas nos produits choisis avec soin et cuisiné avec passion.</p>
-</section>
-<img src="{{ asset('images/facade.jpg') }}" alt="restaurant italien">
-</div>
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        {% for image in images %}
-            <div class="carousel-item {% if loop.first %}active{% endif %}">
-                <img src="{{ asset('uploads/galerie/' ~ image.photo) }}" class="d-block w-100" alt="{{ image.description }}">
-            </div>
-        {% endfor %}
+    <div class="hero">
+        <h1>Auberge Georgio</h1>
+        <h2>Restaurant Italien</h2>
+         {% if booking and booking.canBook %}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservationModal">
+                Réserver
+            </button>
+        {% else %}
+            <p>Les réservations sont actuellement désactivées.</p>
+        {% endif %}
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-<div class="horaires">
-    <h2>HORAIRES:</h2>
-    <p>De Mardi à Samedi : 12h00 - 15h00 / 19h00-22h30<br><br>
-        Dimanche : 12h00 - 15h00.
-    </p>
-</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservationModalLabel">Réserver une Table</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(reservationForm) }}
+                        {{ form_row(reservationForm.name) }}
+                        {{ form_row(reservationForm.phone_number) }}
+                        {{ form_row(reservationForm.email) }}
+                        {{ form_row(reservationForm.nb_guest) }}
+                        {{ form_row(reservationForm.date) }}
+                        {{ form_row(reservationForm.special_request) }}
+                        <button type="submit" class="btn btn-primary">Envoyer la Réservation</button>
+                    {{ form_end(reservationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info">
+        <section>
+            <h2>A PROPOS DE NOUS</h2>
+            <p>Toute l’équipe de l’Auberge Georgio est heureuse de vous accueillir dans un cadre chaleureux en plein cœur de la vieille ville de Saint-Prix et vous propose une carte aux saveurs authentiques d'Italie.<br> 
+            Perché en haut de la ville, vous aurez une vue imprenable sur tout Paris à quelques pas de là.<br> 
+            Venez découvrir ce restaurant de caractère et laissez-vous tenter par nos produits choisis avec soin et cuisinés avec passion.</p>
+        </section>
+        <img src="{{ asset('images/facade.jpg') }}" alt="restaurant italien">
+    </div>
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in images %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <img src="{{ asset('uploads/galerie/' ~ image.photo) }}" class="d-block w-100" alt="{{ image.description }}">
+                </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="horaires">
+        <h2>HORAIRES:</h2>
+        <p>De Mardi à Samedi : 12h00 - 15h00 / 19h00-22h30<br><br>
+            Dimanche : 12h00 - 15h00.
+        </p>
+    </div>
+
     {{ include('/component/footer.html.twig') }}
 {% endblock %}
