@@ -46,7 +46,7 @@ class DashboardController extends AbstractDashboardController
         // return $this->entityManager->getRepository(Booking::class)->findAll();
         return $entityManager->getRepository(Booking::class)
             ->createQueryBuilder('b')
-            ->orderBy('b.date', 'DESC') // Trier par date en ordre décroissant
+            ->orderBy('b.isVerified', 'ASC') // Trier par date en ordre décroissant
             ->getQuery()
             ->getResult();
     }
