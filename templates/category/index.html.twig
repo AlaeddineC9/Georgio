@@ -5,14 +5,15 @@
 
 <div class="example">
     <h1>Menu</h1>
-    <div class="category-container">
-        {% for category in categories %}
-            <div class="category-card">
-                <img src="{{ asset('uploads/categories/' ~ category.photo) }}" alt="{{ category.name }}" onclick="openModal({{ category.id }})">
-                <h2>{{ category.name }}</h2>
-            </div>
-        {% endfor %}
-    </div>
+   <div class="category-container">
+    {% for category in categories %}
+        <div class="category-card">
+            <img src="{{ asset('uploads/categories/' ~ category.photo) }}" alt="{{ category.name }}" 
+                 onclick="openModal({{ category.id }}, '{{ category.name }}')">
+            <h2>{{ category.name }}</h2>
+        </div>
+    {% endfor %}
+</div>
 </div>
 
 <!-- Modal -->
@@ -20,8 +21,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="menuModalLabel">Menu</h5>
+            <div class="test">
+                <h5 class="modal-title" id="menuModalLabel"></h5>
+            </div>
+            <div class="centre">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             </div>
             <div class="modal-body">
                 <!-- Le contenu du menu sera injecté ici par JavaScript -->
@@ -37,23 +42,27 @@
 </div>
 
 <script>
-    function openModal(categoryId) {
-        fetch('/category/' + categoryId + '/menus')
-            .then(response => response.json())
-            .then(data => {
-                let menuContent = '';
-                data.menus.forEach(function(item) {
-                    menuContent += '<div class="menu-item">';
-                    menuContent += '<h4>' + item.name + '</h4>';
-                    menuContent += '<p>' + item.composition + '</p>';
-                    menuContent += '<p>Prix: ' + item.prix + ' €</p>';
-                    menuContent += '</div>';
-                });
-                document.getElementById('menuContent').innerHTML = menuContent;
+    function openModal(categoryId, categoryName) {
+    // Met à jour le titre du modal avec le nom de la catégorie
+    document.getElementById('menuModalLabel').textContent = categoryName;
 
-                var menuModal = new bootstrap.Modal(document.getElementById('menuModal'));
-                menuModal.show();
+    // Effectuer la requête pour récupérer les menus
+    fetch('/category/' + categoryId + '/menus')
+        .then(response => response.json())
+        .then(data => {
+            let menuContent = '';
+            data.menus.forEach(function(item) {
+                menuContent += '<div class="menu-item">';
+                menuContent += '<h4>' + item.name + '</h4>';
+                menuContent += '<p>' + item.composition + '</p>';
+                menuContent += '<p>Prix: ' + item.prix + ' €</p>';
+                menuContent += '</div>';
             });
-    }
+            document.getElementById('menuContent').innerHTML = menuContent;
+
+            var menuModal = new bootstrap.Modal(document.getElementById('menuModal'));
+            menuModal.show();
+        });
+}
 </script>
 {% endblock %}
