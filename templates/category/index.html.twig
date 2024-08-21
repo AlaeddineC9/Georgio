@@ -5,11 +5,11 @@
 
 <div class="example">
     <h1>Menu</h1>
-   <div class="category-container">
+<div class="category-container">
     {% for category in categories %}
         <div class="category-card">
             <img src="{{ asset('uploads/categories/' ~ category.photo) }}" alt="{{ category.name }}" 
-                 onclick="openModal({{ category.id }}, '{{ category.name }}')">
+                onclick="openModal({{ category.id }}, '{{ category.name }}')">
             <h2>{{ category.name }}</h2>
         </div>
     {% endfor %}
