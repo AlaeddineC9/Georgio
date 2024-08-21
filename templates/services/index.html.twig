@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ServicesController!{% endblock %}
+
 
 {% block body %}
 {{ include('/component/navbar.html.twig') }}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/Georgio/src/Controller/ServicesController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/Georgio/templates/services/index.html.twig</code></li>
-    </ul>
+<h1>Services</h1>
+<div class="service-container">
+    {% for service in services %}
+        <div class="service-card">
+            <img src="{{ asset('uploads/services/' ~ service.photo) }}" alt="{{ service.name }}" >
+            <h2>{{ service.name }}</h2>
+            <div class="description-overlay">
+                <p>{{ service.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
