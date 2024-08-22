@@ -74,6 +74,29 @@
             Dimanche : 12h00 - 15h00.
         </p>
     </div>
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+    $('.datetimepicker').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm', // Format pour date et heure
+        showTodayButton: true, // Affiche un bouton pour sélectionner la date actuelle
+        showClose: true, // Affiche un bouton pour fermer le picker
+        showClear: true, // Affiche un bouton pour effacer la sélection
+        icons: {
+            time: 'fas fa-clock',
+            date: 'fas fa-calendar',
+            up: 'fas fa-arrow-up',
+            down: 'fas fa-arrow-down',
+            previous: 'fas fa-chevron-left',
+            next: 'fas fa-chevron-right',
+            today: 'fas fa-calendar-check',
+            clear: 'fas fa-trash',
+            close: 'fas fa-times'
+        }
+    });
+});
+</script>
 
+{% endblock %}
     {{ include('/component/footer.html.twig') }}
 {% endblock %}

@@ -1,8 +1,4 @@
 body {
-    /* font-family: Arial, sans-serif; */
-    /* margin: 0;
-    padding: 0; */
-    /* box-sizing: border-box; */
     background-color: #ffffff;
 }
 
@@ -111,9 +107,8 @@ body {
 .hero h1 {
     font-size: 10rem;
     margin-bottom: 1px;
-    font-weight: bold; /* Ajout du style en gras */
-    font-family: 'Jacques Francois Shadow', serif; /* Applique la police Jacques Francois */
-
+    /* font-weight: bold; Ajout du style en gras */
+    font-family: 'Jacques Francois Shadow', serif; 
 }
 
 .hero h2 {
@@ -465,6 +460,45 @@ body {
     background-color: #98aa97;
     
 }
+.modal-body{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /* margin-top: 10px; */
+    color:#6C846B;
+    font-family: 'Jacques Francois', serif;
+    
+}
+.modal-body button {
+    border-radius: 12px;
+    background-color: #0E7331;
+    border: none;
+    color: #ffffff;
+    font-family: 'jacques Francois', serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-name-class,
+.custom-phone-class,
+.custom-email-class,
+.custom-guest-class,
+.datetimepicker,
+.custom-request-class {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+}
+
+::placeholder {
+    color: #888; /* Couleur du texte du placeholder */
+    font-style: italic; /* Style du texte */
+    font-size: 0.8rem; /* Taille de la police */
+    opacity: 0.5; /* Opacité du texte (1 est complètement visible) */
+}
 .test {
     display: flex;
     justify-content: center;
@@ -510,13 +544,40 @@ body {
     transition: background-color 0.3s ease;
     
 }
+.service{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+    color: #6C846B;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.service h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    font-family: 'Jacques Francois Shadow', serif;
+    text-align: center;
+    /* padding-left: 2rem; */
+    margin-bottom: 2rem;
+    color: #6C846B;
+}
+.service p {
+    font-size: 1.5rem;
+    font-family: 'Jacques Francois', serif;
+    text-align: center;
 
+    
+    color: #6C846B;
+}
 .service-container {
     display: flex;
     flex-wrap: wrap;
     gap: 120px;
     border-radius: 12px;
     margin-top: 120px;
+    margin-bottom: 120px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -538,14 +599,21 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* opacity:0.8; */
     transition: opacity 0.3s ease;
 }
 
 .service-card h2 {
     position: absolute;
-    bottom: 10px;
-    left: 30%;
-    color: white;
+    background-color:rgba(255, 255, 255, 0.7); /* Fond semi-transparent */
+;
+    width: 100%;
+    height: 50px;
+    /* opacity: 0.5; */
+    bottom: 0px;
+    margin-bottom: 0px;
+    
+    color:#6C846B;
     z-index: 2;
     text-align: center;
     align-items: center;
@@ -557,9 +625,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-    color: white;
+    background-color: rgba(255, 255, 255, 0.37); /* Fond semi-transparent */
+    color: #6C846B;
     opacity: 0;
+    font-family: 'jacques Francois', serif;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -4,7 +4,14 @@
 
 {% block body %}
 {{ include('/component/navbar.html.twig') }}
-<h1>Services</h1>
+<div class="service">
+<h1>Nos Services</h1>
+<p>Bienvenue chez Auberge Georgio où la tradition et la passion de la cuisine italienne
+ 
+se rencontrent pour vous offrir une expérience gastronomique unique. 
+
+Découvrez nos services conçus pour satisfaire tous vos désirs culinaires.</p>
+</div>
 <div class="service-container">
     {% for service in services %}
         <div class="service-card">
@@ -16,4 +23,5 @@
         </div>
     {% endfor %}
 </div>
+{{ include('/component/footer.html.twig') }}
 {% endblock %}
