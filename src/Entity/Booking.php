@@ -118,6 +118,7 @@ class Booking
 
         return $this;
     }
+    
 
     public function isAccepted(): ?bool
 {

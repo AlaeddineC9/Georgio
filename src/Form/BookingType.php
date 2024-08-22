@@ -57,6 +57,7 @@ class BookingType extends AbstractType
                     'Autre' => 'Autre',
                 ],
                 'attr' => ['class' => 'form-control custom-motif-class',],
+                'required' => false,
                 ])
             ->add('special_request', TextareaType::class, [
                 'label' => 'Message (facultatif) : ',
