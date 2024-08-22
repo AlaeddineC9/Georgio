@@ -17,15 +17,23 @@ class ContactType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Votre nom',
+                'attr' => ['placeholder' => 'Entrez votre nom',
+                'class' => 'form-control custom-name-class'],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre email',
+                'attr' => ['placeholder' => 'Entrez votre email',
+                'class' => 'form-control custom-email-class'],
             ])
             ->add('phone_number', TextType::class, [
                 'label' => 'Votre numéro de téléphone',
+                'attr' => ['placeholder' => 'Entrez votre numéro de téléphone',
+                'class' => 'form-control custom-phone-class'],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
+                'attr' => ['placeholder' => 'Entrez votre message',
+                'class' => 'form-control custom-message-class'],
             ]);
     }
 

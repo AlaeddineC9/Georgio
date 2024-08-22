@@ -423,13 +423,37 @@ body {
     border-radius: 5px;
     margin-bottom: 10px;
 }
-.contact {
+.contact-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 20px;
     color: #6C846B;
+    font-family: 'Jacques Francois', serif;
+}
+.contact-form button{
+    border-radius: 12px;
+    background-color: #0E7331;
+    border: none;
+    color: #ffffff;
+    font-family: 'jacques Francois', serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 200px;
+}
+.contact-body {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    text-align: center;
+    margin-top: 120px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color:#6C846B;
+    font-family: 'Jacques Francois', serif;
 }
 .menu-item {
     display: block;
@@ -462,14 +486,19 @@ body {
 }
 .modal-body{
     display: flex;
-    justify-content: center;
+    justify-content:center;
     text-align: center;
-    /* margin-top: 10px; */
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     color:#6C846B;
     font-family: 'Jacques Francois', serif;
     
+    
 }
-.modal-body button {
+
+.modal-footer button {
+
     border-radius: 12px;
     background-color: #0E7331;
     border: none;
@@ -487,13 +516,17 @@ body {
 .custom-email-class,
 .custom-guest-class,
 .datetimepicker,
-.custom-request-class {
+.custom-request-class,.custom-message-class {
+  
+    text-align: center;
+    
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #ced4da;
     box-shadow: 1px 1px 3px #4e4e4e;
     font-size: 1rem;
+    width: 400px;
 }
 
 .custom-motif-class,.datetimepicker{
@@ -539,20 +572,9 @@ body {
     color: #ffffff;
     font-family: 'Jacques Francois', serif;
     background-color: #98aa97;
+    width: 100%;
 }
-.modal-footer button {
 
-    border-radius: 12px;
-
-    background-color: #c2ccc2;
-    border: none;
-    color: #ffffff;
-    font-family: 'jacques Francois', serif;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    
-}
 .service{
     display: flex;
     flex-direction: column;
