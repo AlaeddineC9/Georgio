@@ -478,10 +478,12 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 .custom-name-class,
 .custom-phone-class,
+.custom-motif-class,
 .custom-email-class,
 .custom-guest-class,
 .datetimepicker,
@@ -490,8 +492,15 @@ body {
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #ced4da;
+    box-shadow: 1px 1px 3px #4e4e4e;
     font-size: 1rem;
 }
+
+.custom-motif-class,.datetimepicker{
+    color:#6C846B;
+    font-family: 'Jacques Francois', serif;  
+}
+
 
 ::placeholder {
     color: #888; /* Couleur du texte du placeholder */

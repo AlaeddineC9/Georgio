@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class BookingType extends AbstractType
 {
@@ -40,12 +41,25 @@ class BookingType extends AbstractType
             ->add('date', DateTimeType::class, [
                 'label' => 'Date et Heure : ',
                 'widget' => 'single_text',
-                'html5' => false,
+                
                 'attr' => ['class' => 'form-control datetimepicker',
                 'placeholder' => 'Entrez la date et l\'heure de la réservation'],
             ])
+
+            ->add('motif', ChoiceType::class, [
+                'label' => 'Motif (facultatif) : ',
+                'choices' => [
+                    'Sélectionnez un motif' => '',
+                    'Anniversaire' => 'Anniversaire',
+                    'Réunion' => 'Réunion',
+                    'Dîner romantique' => 'Dîner romantique',
+                    'Événement d\'entreprise' => 'Événement d\'entreprise',
+                    'Autre' => 'Autre',
+                ],
+                'attr' => ['class' => 'form-control custom-motif-class',],
+                ])
             ->add('special_request', TextareaType::class, [
-                'label' => 'Demande spéciale : ',
+                'label' => 'Message (facultatif) : ',
                 'required' => false,
                 'attr' => ['class' => 'form-control custom-request-class',
                 'placeholder' => 'Entrez votre demande spéciale'],

@@ -32,6 +32,7 @@
                         {{ form_row(reservationForm.email) }}
                         {{ form_row(reservationForm.nb_guest) }}
                         {{ form_row(reservationForm.date) }}
+                        {{ form_row(reservationForm.motif)}}
                         {{ form_row(reservationForm.special_request) }}
                         <button type="submit" class="btn btn-primary">Envoyer la Réservation</button>
                     {{ form_end(reservationForm) }}
@@ -74,7 +75,7 @@
             Dimanche : 12h00 - 15h00.
         </p>
     </div>
-{% block javascripts %}
+{# {% block javascripts %}
 <script>
 $(document).ready(function(){
     $('.datetimepicker').datetimepicker({
@@ -97,6 +98,6 @@ $(document).ready(function(){
 });
 </script>
 
-{% endblock %}
+{% endblock %} #}
     {{ include('/component/footer.html.twig') }}
 {% endblock %}

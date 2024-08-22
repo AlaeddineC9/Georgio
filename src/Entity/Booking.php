@@ -49,6 +49,9 @@ class Booking
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $isVerified = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $motif = null;
+
 
 
     public function getId(): ?int
@@ -179,6 +182,18 @@ public function setCanBook(bool $canBook): static
     public function __toString(): string
     {
         return $this->phone_number;
+    }
+
+    public function getMotif(): ?string
+    {
+        return $this->motif;
+    }
+
+    public function setMotif(?string $motif): static
+    {
+        $this->motif = $motif;
+
+        return $this;
     }
 
 

@@ -26,11 +26,7 @@ class BookingController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // $currentDate = new \DateTime();
-            // if ($booking->getDate() <= $currentDate) {
-            //     $this->addFlash('error', 'La date de réservation doit être dans le futur.');
-            //     return $this->redirectToRoute('reservation');
-            // }
+            
 
 
             $entityManager = $this->getDoctrine()->getManager();
