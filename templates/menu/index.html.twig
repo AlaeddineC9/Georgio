@@ -4,47 +4,8 @@
     {{ include('/component/navbar.html.twig') }}
 
     
-    {# <div class="example">
-    <h1>Menu</h1>
-        <div class="category-container">
-            {% for category in categories %}
-                <div class="category-card">
-                    <img src="{{ category.image }}" alt="{{ category.name }}" onclick="openModal({{ category.id }})">
-                    <h2>{{ category.name }}</h2>
-                </div>
-
-            {% endfor %}
-        </div>
-    </div> #}
+   
 
     
 {% endblock %}
 
-{# {% block javascripts %}
-    <script>
-        window.openModal = function(categoryId) {
-            fetch(`/category/${categoryId}/items`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('modalCategoryName').textContent = data.category.name;
-                    let itemsHtml = '';
-                    data.menu.forEach(item => {
-                        itemsHtml += `
-                            <div class="menu-item">
-                                <h3>${item.name}</h3>
-                                <p>${item.description}</p>
-                                <p>${item.price} €</p>
-                            </div>
-                        `;
-                    });
-                    document.getElementById('modalMenuItems').innerHTML = itemsHtml;
-                    document.getElementById('categoryModal').style.display = 'block';
-                })
-                .catch(error => console.error('Error fetching category items:', error));
-        };
-
-        window.closeModal = function() {
-            document.getElementById('categoryModal').style.display = 'none';
-        };
-    </script>
-{% endblock %} #}
