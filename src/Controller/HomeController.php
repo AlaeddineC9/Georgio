@@ -20,6 +20,7 @@ class HomeController extends AbstractController
     {
         // Récupérer toutes les images de la galerie
         $images = $galerieRepository->findAll();
+    
 
 
         $bookingRepository = $doctrine->getRepository(Booking::class);
