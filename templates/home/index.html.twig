@@ -62,7 +62,7 @@
         <div class="carousel-inner">
             {% for image in images %}
                 <div class="carousel-item {% if loop.first %}active{% endif %}">
-                    <img src="{{ asset('uploads/galerie/' ~ image.photo) }}" class="d-block w-100" alt="{{ image.description }}">
+                    <img src="{{ asset('uploads/galerie/' ~ image.photo) }}" class="d-block" alt="{{ image.description }}">
                 </div>
             {% endfor %}
         </div>
@@ -75,6 +75,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    
 
     <div class="horaires">
         <h2>HORAIRES:</h2>
@@ -82,29 +83,69 @@
             Dimanche : 12h00 - 15h00.
         </p>
     </div>
-{# {% block javascripts %}
-<script>
-$(document).ready(function(){
-    $('.datetimepicker').datetimepicker({
-        format: 'YYYY-MM-DD HH:mm', // Format pour date et heure
-        showTodayButton: true, // Affiche un bouton pour sélectionner la date actuelle
-        showClose: true, // Affiche un bouton pour fermer le picker
-        showClear: true, // Affiche un bouton pour effacer la sélection
-        icons: {
-            time: 'fas fa-clock',
-            date: 'fas fa-calendar',
-            up: 'fas fa-arrow-up',
-            down: 'fas fa-arrow-down',
-            previous: 'fas fa-chevron-left',
-            next: 'fas fa-chevron-right',
-            today: 'fas fa-calendar-check',
-            clear: 'fas fa-trash',
-            close: 'fas fa-times'
-        }
-    });
-});
-</script>
 
-{% endblock %} #}
+
+<!-- Modal pour afficher les images en grand -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for image in images %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img src="{{ asset('uploads/galerie/' ~ image.photo) }}" class="d-block w-100" alt="{{ image.description }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const images = document.querySelectorAll('.carousel-item img');
+        const modal = new bootstrap.Modal(document.getElementById('imageModal'), {
+            keyboard: true
+        });
+
+        images.forEach((img, index) => {
+            img.addEventListener('click', function () {
+                const modalCarousel = document.querySelector('#modalCarousel .carousel-inner');
+                const modalItems = modalCarousel.querySelectorAll('.carousel-item');
+
+                // Active the clicked image in modal
+                modalItems.forEach((item, i) => {
+                    item.classList.remove('active');
+                    if (i === index) {
+                        item.classList.add('active');
+                    }
+                });
+
+                modal.show();
+            });
+        });
+
+        // Add click event to swap images within the modal
+        const modalImages = document.querySelectorAll('#modalCarousel .carousel-item img');
+        modalImages.forEach((modalImg, modalIndex) => {
+            modalImg.addEventListener('click', function () {
+                const nextIndex = (modalIndex + 1) % modalImages.length;
+                const modalItems = document.querySelectorAll('#modalCarousel .carousel-item');
+
+                modalItems.forEach((item, i) => {
+                    item.classList.remove('active');
+                    if (i === nextIndex) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    });
+</script>
     {{ include('/component/footer.html.twig') }}
 {% endblock %}

@@ -23,13 +23,14 @@ body {
 
 .navbar.sticky {
     background-color: #ffffff;
-    padding: 5px 20px;
+    /* padding: 5px 20px; */
     opacity: 0.8;
 }
 
 .logo img {
     width: 60px;
-    margin-top: 20px;
+    /* margin-top: px; */
+    margin-left: 20px;
     position: relative;
     left: 0;
     transition: left 0.3s ease;
@@ -41,27 +42,31 @@ body {
     display: flex;
     /* margin: 0; */
     /* margin-left: 10px; Déplacer les liens vers la droite */
-    padding-right: 700px; /* Déplacer les liens vers la gauche */
+    padding-right: 500px; /* Déplacer les liens vers la gauche */
     
     
 }
 
 .nav-links li {
-    margin-left: 100px;  /* Ajouter de l'espace entre les liens */
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 150px;  /* Ajouter de l'espace entre les liens */
 }
 
 .nav-links a {
     padding-bottom: 40px;
     text-decoration: none;
     color: #6C846B;
-    font-weight: 500;
+    font-size: 32px;
     transition: color 0.3s ease;
     font-weight: bold; /* Ajout du style en gras */
     font-family: 'Jacques Francois', serif; /* Applique la police Jacques Francois */
 }
 
 .nav-links a:hover {
-    color: #f3c623;
+    color: #2a972a;
 }
 
 .burger {
@@ -157,7 +162,7 @@ body {
     font-family: 'Jacques Francois', serif;
     text-align: justify;
     padding-left: 2rem;
-    padding-right: 24rem;
+    padding-right: 428px;
     color: #6C846B;
     
 }
@@ -165,21 +170,48 @@ body {
 .info img {
     width: 500px;
     border-radius: 12px;
-    margin-right: 2rem;
+    
+    box-shadow: 0 8px 12px rgba(0.4, 0.4, 0.4, 0.6); /* Ombre douce */
+    margin-right: 124px;
 }
-
-.carousel-inner img {
-    /* padding-left: 30%;
-    padding-right: 30%; */
+.carousel-item {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    backface-visibility: hidden;
+    transition: transform 0.2s ease;
+    float:left;
+    margin-right: 50px;  
+}
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 50px; */
+    background-color:rgba(255, 255, 255, 0.4);
+    width: 600px;
+    position: relative; /* Assurez-vous que les boutons sont positionnés correctement */
+    background-size: cover; /* L'image couvrira toute la div */
+    background-position: center; /* Centrer l'image */
+    padding-left:32px ;
+    padding-right:32px ;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-radius: 12px;
+    /* height: 500px; Ajustez la hauteur selon vos besoins
+    } */
+}
+.carousel-item img {
     margin-top: 50px;
     margin-bottom: 50px;
-    /* margin-left: 300px;
-    margin-right: 300px; */
-    
-    height: 64rem;
-    
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 500px;
+    height: 32rem;
     box-shadow: 0 8px 12px rgba(0.4, 0.4, 0.4, 0.4); /* Ombre douce */
     border-radius: 15px; /* Coins arrondis */
+    cursor: pointer;
 }
 
 #carouselExampleControls{
@@ -194,33 +226,45 @@ body {
     background-repeat: no-repeat; /* Ne pas répéter l'image */
     padding-left:300px ;
     padding-right:300px ;
+    padding-top: 32px;
+    padding-bottom: 32px;
     /* height: 500px; Ajustez la hauteur selon vos besoins
 } */
 }
 
 .carousel-control-prev, .carousel-control-next {
     position: absolute;
-    background-color: silver;
+    background-color: rgb(255, 255, 255);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 128px;
+    height: 128px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
 }
 
 .carousel-control-prev {
-    left: 100px;
+    left: 350px;
 }
 
 .carousel-control-next {
-    right: 100px;
+    right: 350px;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
     filter: invert(100%); /* Assurez-vous que les icônes sont visibles */
+    display: inline-block;
+    width: 100%; /* Largeur des flèches */
+    height: 60%; /* Hauteur des flèches */
+    background-color: transparent; /* Fond transparent pour n'afficher que la flèche */
+    border: none;
+    font-size: 4px; /* Taille des flèches */
+    color: #6C846B; /* Couleur des flèches */
+    font-weight: bold;
 
 }
+
+
 
 .example {
     background-image: url('../images/fond2.jpg');
@@ -305,20 +349,21 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .horaires h2 {
-    font-size: 6rem;
+    font-size: 60px;
     font-weight: bold;
     font-family: 'Jacques Francois Shadow', serif;
     text-align: center;
-    padding-left: 2rem;
-    margin-bottom: 2rem;
+    padding-left: 32px;
+    margin-bottom: 32px;
     color: #6C846B;
 }
 
 .horaires p {
-    font-size: 3rem;
+    font-size: 30px;
     font-family: 'Jacques Francois', serif;
     text-align: center;
     /* padding-left: 2rem;
@@ -328,36 +373,60 @@ body {
 .footer {
     background-color: #F0EFD5;
     color: #6C846B;
-    padding: 20px 0;
+    /* padding: 20px 0; */
+    height: auto;
     text-align: center;
-    font-size: 1.5rem;
+    
+    font-family: 'Jacques Francois', serif;
+    margin-bottom: 0px;
+}
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+    padding-right: 200px;
+}
+.footer-bottom{
+    background-color: #F0EFD5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espace entre chaque partie */
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.footer-bottom a {
+    color: #6C846B;
+    font-size: 1.2rem;
     font-family: 'Jacques Francois', serif;
 }
-
 .footer-content {
     display: flex;
+    flex-direction: row;
     justify-content: space-between; /* Espace entre chaque partie */
-    align-items: flex-start; /* Aligner les éléments en haut de la div */
-    padding: 20px;
+    align-items: center; /* Aligner les éléments en haut de la div */
+    /* padding: 20px; */
 }
 .fconatct{
-    margin-top: 60px;
+    align-items: center;
+    text-align: center;
 }
 .fconatct a {
      /* Ajoute du padding pour l'espace intérieur du bouton */
     border-radius: 12px;
+    box-shadow: 1px 1px 3px #4e4e4e;
     text-decoration: none;
     background-color: #0E7331;
-    width: 200px; /* Définit la largeur du bouton */
-    height: 50px; /* Définit la hauteur du bouton */
+    width: 100px; /* Définit la largeur du bouton */
+    height: 30px; /* Définit la hauteur du bouton */
     border: none;
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.2rem;
     cursor: pointer;
     display: inline-block; /* Assure que l'élément <a> se comporte comme un bouton */
     text-align: center; /* Centre le texte horizontalement */
-    
+    align-items: center;
     transition: background-color 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .fconatct a:hover {
@@ -366,6 +435,7 @@ body {
 .coords {
     display: flex;
     flex-direction: column;
+    font-size: 1.2rem;
     align-items: justify;
     text-align: justify;
     margin-top: 60px;
@@ -374,13 +444,12 @@ body {
 
 .socials {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
     flex-direction: space-between;
-    
-    margin-top: 60px;
-    color: #6C846B;
+    gap: 20px;
+}
+.socials i {
+    font-size: 32px;
+    color: #6C846B; 
 }
 
 .table-responsive {
