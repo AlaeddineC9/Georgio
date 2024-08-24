@@ -84,4 +84,5 @@ class Galerie
 
         return $this;
     }
+
 }
