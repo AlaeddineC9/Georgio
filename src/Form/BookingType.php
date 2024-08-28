@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class BookingType extends AbstractType
 {
@@ -20,13 +21,28 @@ class BookingType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom complet : ',
                 'attr' => ['class' => 'form-control custom-name-class',
-                'placeholder' => 'Entrez votre nom complet'
+                'placeholder' => 'Entrez votre nom complet',
+            ],
+            'constraints' => [
+                new Assert\NotBlank(['message' => 'Le nom ne doit pas être vide.']),
+                new Assert\Length(['max' => 80, 'maxMessage' => 'Le nom ne peut pas dépasser 80 caractères.']),
+                new Assert\Regex([
+                    'pattern' => '/^[a-zA-Z0-9\s]+$/',
+                    'message' => 'Le nom ne doit contenir que des lettres, des chiffres et des espaces.',
+                ]),
             ],
             ])
             ->add('phone_number', TextType::class, [
                 'label' => 'Numéro de téléphone : ',
                 'attr' => ['class' => 'form-control custom-phone-class',
                 'placeholder' => 'Entrez votre numéro de téléphone'],
+                'constraints' => [
+                new Assert\NotBlank(['message' => 'Le numéro de téléphone ne doit pas être vide.']),
+                new Assert\Regex([
+            'pattern' => '/^[0-9\s\+\-]+$/',
+            'message' => 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et les caractères "+" ou "-".',
+                ]),
+    ],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email : ',
@@ -64,6 +80,12 @@ class BookingType extends AbstractType
                 'required' => false,
                 'attr' => ['class' => 'form-control custom-request-class',
                 'placeholder' => 'Entrez votre demande spéciale'],
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/^[a-zA-Z0-9\s.,?!]+$/',
+                        'message' => 'Le message ne doit contenir que des lettres, des chiffres, des espaces, et les caractères .,?!',
+                    ]),
+                ],
             ]);
     }
 
