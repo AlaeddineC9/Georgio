@@ -495,6 +495,16 @@ body {
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
+.contact-title h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    font-family: 'Jacques Francois Shadow', serif;
+    text-align: center;
+    /* padding-left: 2rem; */
+    margin-bottom: 2rem;
+    color: #6C846B;
+}
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -503,6 +513,7 @@ body {
     margin-top: 20px;
     color: #6C846B;
     font-family: 'Jacques Francois', serif;
+    font-size: 24px;
 }
 .contact-form button{
     border-radius: 12px;
@@ -724,7 +735,7 @@ body {
     opacity: 0;
     font-family: 'jacques Francois', serif;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     text-align: center;
     padding: 20px;
@@ -957,6 +968,11 @@ body {
     }
     .modal-body {
         margin-top: 20px;
+        font-size: 32px;
+    }
+    .menu-item h4 {
+        font-size: 45px;
+        font-weight: bold;
     }
     #modalCarousel .carousel-item img {
         width: 700px;
@@ -1051,18 +1067,45 @@ body {
         align-items: center;
     }
     .category-card {
-        width: 100%;
-        height: auto;
+        width: 78%;
+        height: 450px;
         margin-left: 0;
         margin-right: 0;
     }
+    .category-card img{
+        width: 100%;
+        max-width: 450px;
+        max-height: 270px;
+    }
+    .category-card h2 {
+        width: 85%;
+        height: 88px;
+        font-size: 42px;
+    }
+    .service h1{
+        margin-top: -80px;
+    }
+    .service p{
+        font-size: 32px;
+    }
     .service-container {
         flex-direction: column;
-        gap: 40px;
+        margin-left: 140px;
+        width: 700px;
+        gap: 140px;
     }
     .service-card {
         width: 100%;
-        height: auto;
+        height: 800px;
+    }
+    .service-card h2 {
+        height: 150px;
+        font-size: 75px;
+        text-align: center;
+        padding-top: 24px;
+    }
+    .description-overlay {
+        font-size: 44px;
     }
     .footer-container {
         padding-left: 20px;
@@ -1075,12 +1118,27 @@ body {
         font-size: 1.2rem;
     }
     .footer-bottom{
-       
-       padding-left: 5px;
-       padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
     }
     .alert, .alert-error, .alert-success{
         font-size: 1.8rem;
+    }
+    .contact-form button{
+        font-size: 1.8rem;
+        width: 300px;
+        height: 80px;
+        margin-bottom: 40px;
+    }
+    .contact-form{
+        font-size: 2rem;
+    }
+    .fconatct a{
+        font-size: 1.8rem;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 6px;
+        padding-top: 5px;
     }
 }
 
