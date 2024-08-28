@@ -124,7 +124,7 @@ body {
 .hero h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    margin-top: 10px;
+    margin-top: 90px;
     font-family: 'Italianno', cursive;
     font-size: 128px; 
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -290,7 +290,7 @@ body {
     flex-wrap: wrap;
     margin-top: 6rem;
     color: #000;
-    gap: 20px;
+    gap: 48px;
 }
 
 .category-card {
@@ -882,6 +882,7 @@ body {
     }
     .hero h2 {
         font-size: 84px;
+        margin-top: 20px;
     
     }
     .hero p{
@@ -917,6 +918,13 @@ body {
         padding-left: 0px;
         padding-right: 0px;
     }
+    .example {
+       margin-top: 0px;
+    }
+    .example h1 {
+        font-size: 8rem;
+       padding-top: 3rem;
+    }
     #carouselExampleControls {
         padding-left: 100px;
         padding-right: 100px;
@@ -947,11 +955,6 @@ body {
         font-size: 4px; 
     
     }
-
-
-
-
-
     .carousel-control-prev {
         left: 10px;
     }
