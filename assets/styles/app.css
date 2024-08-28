@@ -1,7 +1,6 @@
 body {
     background-color: #ffffff;
 }
-
 .navbar {
     background-color: #ffffff;
     position: fixed;
@@ -11,25 +10,22 @@ body {
     transition: all 0.3s ease;
     
 }
-
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;  /* Définir la largeur maximale pour le conteneur */
-    margin: 0 auto;     /* Centrer le conteneur */
+    max-width: 1200px; 
+    margin: 0 auto;  
     padding: 10px 20px;
 }
 
 .navbar.sticky {
     background-color: #ffffff;
-    /* padding: 5px 20px; */
     opacity: 0.8;
 }
 
 .logo img {
     width: 60px;
-    /* margin-top: px; */
     margin-left: 20px;
     position: relative;
     left: 0;
@@ -40,9 +36,7 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
-    /* margin: 0; */
-    /* margin-left: 10px; Déplacer les liens vers la droite */
-    padding-right: 500px; /* Déplacer les liens vers la gauche */
+    padding-right: 500px;
     
     
 }
@@ -52,21 +46,25 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-left: 150px;  /* Ajouter de l'espace entre les liens */
+    margin-left: 150px;
+    width: 100px;
 }
 
 .nav-links a {
-    padding-bottom: 40px;
+    
     text-decoration: none;
     color: #6C846B;
     font-size: 32px;
     transition: color 0.3s ease;
-    font-weight: bold; /* Ajout du style en gras */
-    font-family: 'Jacques Francois', serif; /* Applique la police Jacques Francois */
+    font-weight: bold;
+    font-family: 'Jacques Francois', serif;
 }
 
 .nav-links a:hover {
-    color: #2a972a;
+    color: #0E7331;
+    transform: scale(1.09);
+    transition: 200ms;
+    border-radius: 12px;
 }
 
 .burger {
@@ -74,13 +72,21 @@ body {
     cursor: pointer;
     flex-direction: column;
     justify-content: space-between;
-    height: 25px;
+    height: 0px;
+    width: 25px;
+    margin-right: 900px;
+    z-index: 1001; /* Assurez-vous qu'il est au-dessus de la navbar */
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+
 }
 
 .burger div {
     width: 25px;
-    height: 3px;
-    background-color: rgb(0, 0, 0);
+    height: 6px;
+    background-color: #6C846B;
+    border-radius: 5px;
     transition: all 0.3s ease;
 }
 
@@ -106,22 +112,21 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Couleur noire avec 50% d'opacité */
-    z-index: -1; /* Place l'overlay derrière le contenu mais au-dessus de l'image */
+    background-color: rgba(0, 0, 0, 0.5);/* Couleur noire avec 50% d'opacité */
+    z-index: -1;
 }
 .hero h1 {
-    font-size: 10rem;
+    font-size: 160px;
     margin-bottom: 1px;
-    /* font-weight: bold; Ajout du style en gras */
     font-family: 'Jacques Francois Shadow', serif; 
 }
 
 .hero h2 {
-    font-size: 1.5rem;
+    font-size: 24px;
     margin-bottom: 20px;
     margin-top: 10px;
     font-family: 'Italianno', cursive;
-    font-size: 8em; /* Ajustez la taille de la police */
+    font-size: 128px; 
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
@@ -133,7 +138,7 @@ body {
     background-color: #0E7331;
     border: none;
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -148,20 +153,18 @@ body {
 }
 
 .info h2 {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 32px;
     font-family: 'Jacques Francois', serif;
-    /* text-align: center; */
-    padding-left: 2rem;
-    margin-bottom: 2rem;
+    padding-left: 32px;
+    margin-bottom: 32px;
     color: #6C846B;
 }
 
 .info p {
-    font-size: 1.5rem;
+    font-size: 24px;
     font-family: 'Jacques Francois', serif;
     text-align: justify;
-    padding-left: 2rem;
+    padding-left: 32px;
     padding-right: 428px;
     color: #6C846B;
     
@@ -171,7 +174,7 @@ body {
     width: 500px;
     border-radius: 12px;
     
-    box-shadow: 0 8px 12px rgba(0.4, 0.4, 0.4, 0.6); /* Ombre douce */
+    box-shadow: 0 8px 12px rgba(0.4, 0.4, 0.4, 0.6);
     margin-right: 124px;
 }
 .carousel-item {
@@ -188,19 +191,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-right: 50px; */
     background-color:rgba(255, 255, 255, 0.4);
     width: 600px;
-    position: relative; /* Assurez-vous que les boutons sont positionnés correctement */
-    background-size: cover; /* L'image couvrira toute la div */
-    background-position: center; /* Centrer l'image */
+    position: relative;
+    background-size: cover;
+    background-position: center;
     padding-left:32px ;
     padding-right:32px ;
     padding-top: 32px;
     padding-bottom: 32px;
     border-radius: 12px;
-    /* height: 500px; Ajustez la hauteur selon vos besoins
-    } */
 }
 .carousel-item img {
     margin-top: 50px;
@@ -209,8 +209,8 @@ body {
     margin-right: 50px;
     width: 500px;
     height: 32rem;
-    box-shadow: 0 8px 12px rgba(0.4, 0.4, 0.4, 0.4); /* Ombre douce */
-    border-radius: 15px; /* Coins arrondis */
+    box-shadow: 0 8px 12px rgba(0.4, 0.4, 0.4, 0.4);
+    border-radius: 15px;
     cursor: pointer;
 }
 
@@ -220,16 +220,14 @@ body {
     align-items: center;
     margin-top: 4rem;
     background-image: url('../images/fond.png');
-    position: relative; /* Assurez-vous que les boutons sont positionnés correctement */
-    background-size: cover; /* L'image couvrira toute la div */
-    background-position: center; /* Centrer l'image */
-    background-repeat: no-repeat; /* Ne pas répéter l'image */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding-left:300px ;
     padding-right:300px ;
     padding-top: 32px;
     padding-bottom: 32px;
-    /* height: 500px; Ajustez la hauteur selon vos besoins
-} */
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -252,23 +250,23 @@ body {
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
-    filter: invert(100%); /* Assurez-vous que les icônes sont visibles */
+    filter: invert(100%); 
     display: inline-block;
-    width: 100%; /* Largeur des flèches */
-    height: 60%; /* Hauteur des flèches */
-    background-color: transparent; /* Fond transparent pour n'afficher que la flèche */
+    width: 100%; 
+    height: 60%; 
+    background-color: transparent; 
     border: none;
-    font-size: 4px; /* Taille des flèches */
-    color: #6C846B; /* Couleur des flèches */
+    font-size: 4px; 
+    color: #6C846B;
     font-weight: bold;
 
 }
 
-
-
 .example {
     background-image: url('../images/fond2.jpg');
     margin-top: 90px;
+    padding-left: 124px;
+    padding-right: 124px;
 }
 .example p {
     font-size: 1.5rem;
@@ -283,7 +281,6 @@ body {
     font-weight: bold;
     font-family: 'Jacques Francois Shadow', serif;
     text-align: center;
-    padding-left: 2rem;
     margin-bottom: 2rem;
     color: #6C846B;
 }
@@ -302,15 +299,20 @@ body {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    width: 20%;
-    height: 400px;
+    justify-content: space-between;
+
+    width: 350px;
+    height: 350px;
     text-align: center;
     align-items: center;
     color: #000;
-    margin-left: 70px;
-    margin-right: 70px;
+    /* margin-right: 60px; */
+    margin-bottom: 60px;
+    /* margin-left: 90px;
+     */
     border: 1px #000;
     box-shadow: 3px 3px 10px #4e4e4e;
+    cursor: pointer;
 
 }
 .category-card:hover {
@@ -319,30 +321,39 @@ body {
 }
 
 .category-card h2 {
-    margin-top: 50px;
-    font-size: 3rem;
+    margin-top: 32px;
+    font-size: 34px;
     font-weight: bold;
     font-family: 'Jacques Francois', serif;
-    
     color: #ffffff;
     background-color: #0E7331;
-    width: 100%;
-    height: 150px;
+    width: 80%;
+    height: 70px;
     text-align: center;
     align-items: center;
     border-radius: 12px;
-    padding-top: 7px;
+    padding-top: 10px;
+    box-shadow: 3px 3px 10px #4e4e4e;
 
 }
+
 
 .category-card img {
-    width: 300px;
-    height: 175px;
-    height: auto;
-    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: cover; /* Assure que l'image couvre la zone définie tout en conservant son aspect */
+    object-position: center; /* Centre l'image dans son conteneur */
     border-radius: 12px;
+    flex-grow: 1; /* Permet à l'image de prendre l'espace disponible pour garder le contenu centré */
+    cursor: pointer;
+    box-shadow: 3px 3px 10px #4e4e4e;
+    opacity: 0.8;
 }
 
+.category-card img:hover {
+    opacity: 1;
+}
 
 .horaires {
     display: flex;
@@ -457,18 +468,10 @@ body {
     margin-top: 60px;
     margin-left: 0px;
 }
-/* .table-responsive h1{
-    font-size: 6rem;
-    font-weight: bold;
-    font-family: 'Jacques Francois Shadow', serif;
-    text-align: center;
-
-    margin-bottom: 2rem;
-    color: #6C846B;
-} */
 .alert{
     margin-top: 60px;
     margin-left: 0px;
+    z-index: 1100;
 }
 .alert-success {
     background-color: #d4edda;
@@ -526,7 +529,6 @@ body {
 }
 .menu-item {
     display: block;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -545,9 +547,7 @@ body {
 .modal-header {
     display: flex;
     justify-content: center;
-    
     text-align: center;
-    /* margin-top: 10px; */
     color: #ffffff;
     font-family: 'Jacques Francois', serif;
     background-color: #98aa97;
@@ -562,12 +562,9 @@ body {
     margin-right: 10px;
     color:#6C846B;
     font-family: 'Jacques Francois', serif;
-    
-    
 }
 
 .modal-footer button {
-
     border-radius: 12px;
     background-color: #0E7331;
     border: none;
@@ -586,9 +583,7 @@ body {
 .custom-guest-class,
 .datetimepicker,
 .custom-request-class,.custom-message-class {
-  
     text-align: center;
-    
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 12px;
@@ -596,14 +591,13 @@ body {
     box-shadow: 1px 1px 3px #4e4e4e;
     font-size: 1rem;
     width: 400px;
+    font-size: 24px;
 }
 
 .custom-motif-class,.datetimepicker{
     color:#6C846B;
     font-family: 'Jacques Francois', serif;  
 }
-
-
 ::placeholder {
     color: #888; /* Couleur du texte du placeholder */
     font-style: italic; /* Style du texte */
@@ -748,10 +742,415 @@ body {
 .service-card:hover {
     transform: scale(1.05); /* Agrandit légèrement la carte au survol */
 }
+.carousel-modal-content {
+    background-color: #fff;
+    border-radius: .3rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    max-width: 100%;
+    margin: auto;
+}
+
+.carousel-modal-content .modal-body {
+    padding: 0;
+}
+
+
+.close-btn {
+    display: none;
+    position: absolute;
+    z-index: 1001; /* Assurez-vous qu'il est au-dessus de la navbar */
+
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: #6C846B;
+    cursor: pointer;
+}
+
+.close-btn.show {
+    display: block;
+}
+
+@media (max-width: 576px) {
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #6C846B;
+}
+
+.logo {
+    margin-left: 0px;
+    align-items: center;
+    display: inline;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.logo img {
+    width: 80px;
+}
+
+.nav-links {
+    position: absolute;
+    /* top: 60px; Adjust this value to ensure the menu appears below the burger */
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    opacity: 0.9;
+    width: 100%; /* Make sure the menu is full-width */
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    font-size: 24px;
+    z-index: 1;
+    color: #6C846B;
+}
+
+.nav-links.nav-active {
+    transform: translateY(0);
+}
+
+.nav-links li {
+    opacity: 0;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    margin-left: 400px;
+    transition: opacity 0.3s ease 0.3s;
+}
+.nav-links :hover {
+    color: #0E7331;
+    transform: scale(1.09);
+    transition: 200ms;
+    border-radius: 12px;
+}
+.nav-links.nav-active li {
+    opacity: 1;
+}
+
+.burger {
+    display: ruby;
+}
+
+.burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle .line2 {
+    opacity: 0;
+}
+
+.burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+.close-btn {
+    display: none;
+}
+
+.close-btn.show {
+    display: block;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+    .hero h1 {
+        font-size: 80px;
+        margin-bottom: 60px;
+    }
+    .hero h2 {
+        font-size: 84px;
+    
+    }
+    .hero p{
+        font-size: 32px;
+    }
+    .hero button {
+        width:186px;
+        font-size: 32px;
+        height: 68px;
+        margin-bottom: 80px;
+        margin-top: 40px;
+    }
+    .info {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info img {
+        width: 50%;
+        border-radius: 12px;
+        box-shadow: 0 8px 12px rgba(0.4, 0.4, 0.4, 0.6);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    .info p {
+        padding-right: 20px;
+        padding-left: 20px;
+        margin-top: 30px;
+        margin-bottom: 60px;
+    }
+    .carousel-inner {
+        width: 800px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    #carouselExampleControls {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    .carousel-item {
+        padding-left: 80px;
+        padding-right: 80px;
+        
+    }
+    .carousel-item img {
+        width: 540px;
+        height: 40rem;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 64px;
+        margin-right: 50px;
+    }
+    .carousel-control-prev, .carousel-control-next {
+        width: 80px;
+        height: 80px;
+    }
+
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        width: 100%; 
+        height: 60%; 
+
+        font-size: 4px; 
+    
+    }
 
 
 
-@media screen and (max-width: 768px) {
+
+
+    .carousel-control-prev {
+        left: 10px;
+    }
+    .carousel-control-next {
+        right: 10px;
+    }
+    .modal-dialog {
+        max-width: 100%;
+        margin: 1rem;
+    }
+    
+    .modal{
+        top: -60px;
+    }
+    .modal-body {
+        margin-top: 20px;
+    }
+    #modalCarousel .carousel-item img {
+        width: 700px;
+        height: 75rem;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 30px;
+        margin-right: 50px;
+    }
+    .fade{
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+    .modal-content{
+        width: 100%;
+        
+        margin-top: 130px;
+    }
+    .modal-content img{
+        width: 100%;
+        height: 100%;
+        
+
+    }
+.modal-header{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.modal-title{
+    font-size: 40px;
+    font-family: 'Jacques Francois', serif;
+    color: #ffffff;
+}
+
+    .custom-name-class,
+.custom-phone-class,
+.custom-motif-class,
+.custom-email-class,
+.custom-guest-class,
+.datetimepicker,
+.custom-request-class,.custom-message-class {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #ced4da;
+    box-shadow: 1px 1px 6px #4e4e4e;
+    font-size: 32px;
+    width: 600px;
+    height: 80px;
+    font-size: 32px;
+}
+::placeholder {
+    color: #888; /* Couleur du texte du placeholder */
+    font-style: italic; /* Style du texte */
+    font-size: 32px; /* Taille de la police */
+    opacity: 0.5; /* Opacité du texte (1 est complètement visible) */
+}
+
+.modal-body label {
+    font-size: 45px;
+    font-family: 'Jacques Francois', serif;
+    color: #6C846B;
+}
+
+.modal-footer{
+    padding-bottom: 40px;
+}
+
+.modal-footer button {
+    border-radius: 12px;
+    background-color: #0E7331;
+    border: none;
+    color: #ffffff;
+    font-size: 26px;
+    font-family: 'jacques Francois', serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 80px;
+    width: 300px;
+}
+    /* .carousel-item{
+        margin-right: 80px;
+        margin-left: -80px;
+    } */
+    .category-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .category-card {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .service-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .service-card {
+        width: 100%;
+        height: auto;
+    }
+    .footer-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .footer p{
+        font-size: 1.8rem;
+    }
+    .footer-bottom p{
+        font-size: 1.2rem;
+    }
+    .footer-bottom{
+       
+       padding-left: 5px;
+       padding-right: 5px;
+    }
+    .alert, .alert-error, .alert-success{
+        font-size: 1.8rem;
+    }
+}
+
+/* Écrans moyens (tablettes) */
+@media (min-width: 577px) and (max-width: 992px) {
+    .navbar .container {
+        max-width: 100%;
+    }
+    .nav-links {
+        padding-right: 100px;
+    }
+    .hero h1 {
+        font-size: 120px;
+    }
+    .hero h2 {
+        font-size: 72px;
+    }
+    .hero button {
+        width: 80%;
+        font-size: 28px;
+    }
+    .info {
+        flex-direction: column;
+    }
+    .info img {
+        width: 80%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .info p {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+    .carousel-inner {
+        width: 90%;
+    }
+    .category-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .category-card {
+        width: 45%;
+    }
+    .service-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .service-card {
+        width: 45%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @media screen and (max-width: 768px) {
     .nav-links {
         position: absolute;
         right: 0;
@@ -798,4 +1197,4 @@ body {
         width: 80px;
         margin-left: 500px;
     }
-}
+} */

@@ -2,29 +2,38 @@
 {% block body %}
 
     <nav class="navbar">
-        <div class="logo">
-            <a href="{{ path('home') }}"><img src="{{ asset('images/logoR.svg') }}" alt="Logo"></a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="{{ path('home') }}">Accueil</a></li>
-            <li><a href="{{ path('category') }}">Menu</a></li>
-            <li><a href="{{ path('services') }}">Services</a></li>
-            <li><a href="{{ path('contact') }}">Contact</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-    </nav>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <div class="close-btn">&times;</div>
+    <div class="logo">
+        <a href="{{ path('home') }}"><img src="{{ asset('images/logoR.svg') }}" alt="Logo"></a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="{{ path('home') }}">Accueil</a></li>
+        <li><a href="{{ path('category') }}">Menu</a></li>
+        <li><a href="{{ path('services') }}">Services</a></li>
+        <li><a href="{{ path('contact') }}">Contact</a></li>
+    </ul>
+</nav>
 
     <script>
-        // Burger menu toggle
-        const burger = document.querySelector('.burger');
-        const navLinks = document.querySelector('.nav-links');
+  const burger = document.querySelector('.burger');
+        const closeBtn = document.querySelector('.close-btn');
+        const nav = document.querySelector('.nav-links');
+
         burger.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-            burger.classList.toggle('toggle');
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('hide'); // Cache le menu burger quand le menu est ouvert
+            closeBtn.classList.toggle('show'); // Affiche le bouton close
+        });
+
+        closeBtn.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            closeBtn.classList.toggle('show'); // Cache le bouton close quand le menu est fermé
+            burger.classList.toggle('hide'); // Réaffiche le menu burger
         });
 
         // Sticky navbar on scroll
