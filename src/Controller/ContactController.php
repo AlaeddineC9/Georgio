@@ -14,6 +14,20 @@ use Symfony\Component\Mime\Email;
 
 class ContactController extends AbstractController
 {
+
+    #[Route('/admin/contact/{id}', name: 'admin_contact_show')]
+public function showContact(Contact $contact, ManagerRegistry $doctrine): Response
+{
+    $entityManager = $doctrine->getManager();
+    $contact->setIsRead(true); // Marque comme lu
+    $entityManager->flush();
+
+    return $this->render('admin/contact/show.html.twig', [
+        'contact' => $contact,
+    ]);
+}
+
+
     #[Route('/contact', name: 'contact')]
     public function contact(Request $request, ManagerRegistry $doctrine, MailerInterface $mailer): Response
     {

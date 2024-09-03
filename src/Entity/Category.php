@@ -36,7 +36,7 @@ class Category
     /**
      * @var Collection<int, Menu>
      */
-    #[ORM\OneToMany(targetEntity: Menu::class, mappedBy: 'category')]
+    #[ORM\OneToMany(targetEntity: Menu::class, mappedBy: 'category', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $Menu;
 
     public function __construct()
@@ -93,6 +93,9 @@ class Category
     public function setPhotoFile(?File $photoFile= null): static
     {
         $this->photoFile = $photoFile;
+        if ($photoFile) {
+            $this->updateAt = new \DateTimeImmutable(); // Met à jour la date pour déclencher la persistance
+        }
 
         return $this;
     }

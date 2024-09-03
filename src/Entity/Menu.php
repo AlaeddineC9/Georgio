@@ -23,12 +23,9 @@ class Menu
     private ?float $prix = null;
 
     #[ORM\ManyToOne(inversedBy: 'Menu')]
+    #[ORM\JoinColumn(onDelete: "CASCADE")] // Important pour gérer la suppression en cascade
     private ?Category $category = null;
-
-
-
-
-
+    
     public function getId(): ?int
     {
         return $this->id;

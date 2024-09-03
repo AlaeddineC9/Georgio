@@ -9,7 +9,7 @@
         <h1>Auberge Georgio</h1>
         <h2>Restaurant Italien</h2>
     {% if bookingStatus and bookingStatus.canBook %}
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservationModal">
+    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#reservationModal">
         Réserver
     </button>
 {% else %}
@@ -31,7 +31,11 @@
                 </div>
                 <div class="modal-body">
                     {{ form_start(reservationForm) }}
+                    
+                    <div class="form-group">
                         {{ form_row(reservationForm.name) }}
+                        {{ form_errors(reservationForm.name) }}
+                        </div>
                         {{ form_row(reservationForm.phone_number) }}
                         {{ form_row(reservationForm.email) }}
                         {{ form_row(reservationForm.nb_guest) }}
@@ -40,7 +44,7 @@
                         {{ form_row(reservationForm.special_request) }}
                         </div>
                         <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Envoyer la Réservation</button>
+                        <button type="submit" class="">Envoyer la Réservation</button>
                     {{ form_end(reservationForm) }}
                         </div>
                 {# </div> #}

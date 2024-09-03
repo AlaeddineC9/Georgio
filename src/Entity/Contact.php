@@ -31,6 +31,9 @@ class Contact
     #[ORM\ManyToOne(inversedBy: 'Contact')]
     private ?User $user = null;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $isRead = false;
+
 
 
     public function getId(): ?int
@@ -106,6 +109,18 @@ class Contact
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function isRead(): ?bool
+    {
+        return $this->isRead;
+    }
+
+    public function setRead(bool $isRead): static
+    {
+        $this->isRead = $isRead;
 
         return $this;
     }

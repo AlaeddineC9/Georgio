@@ -26,10 +26,8 @@ class BookingCrudController extends AbstractCrudController
             TextField::new('phone_number', 'Numéro de téléphone'),
             TextField::new('email', 'Email'),
             DateTimeField::new('date', 'Date de la réservation'),
-            TextField::new('motif', 'Motif'),
             IntegerField::new('nb_guest', 'Nombre d\'invités'),
             TextField::new('special_request', 'Message'),
-            BooleanField::new('isAccepted', 'Acceptée'),
             BooleanField::new('isVerified', 'Vérifiée'),
         ];
     }
@@ -38,10 +36,4 @@ class BookingCrudController extends AbstractCrudController
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL);
     }
-    // public function configureActions(Actions $actions): Actions
-    // {
-    //     return $actions
-    //         ->add(Crud::PAGE_INDEX, Action::EDIT)
-    //         ->add(Crud::PAGE_INDEX, Action::DELETE);
-    // }
 }
