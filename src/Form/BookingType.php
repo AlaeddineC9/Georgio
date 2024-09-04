@@ -42,7 +42,7 @@ class BookingType extends AbstractType
             'pattern' => '/^[0-9\s\+\-]+$/',
             'message' => 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et les caractères "+" ou "-".',
                 ]),
-    ],
+        ],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email : ',

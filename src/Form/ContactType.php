@@ -20,6 +20,14 @@ class ContactType extends AbstractType
                 'label' => 'Votre nom',
                 'attr' => ['placeholder' => 'Entrez votre nom',
                 'class' => 'form-control custom-name-class'],
+                'constraints' => [
+                new Assert\NotBlank(['message' => 'Le nom ne doit pas être vide.']),
+                new Assert\Length(['max' => 80, 'maxMessage' => 'Le nom ne peut pas dépasser 80 caractères.']),
+                new Assert\Regex([
+                    'pattern' => '/^[a-zA-Z0-9\s]+$/',
+                    'message' => 'Le nom ne doit contenir que des lettres, des chiffres et des espaces.',
+                ]),
+            ],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre email',
@@ -30,6 +38,13 @@ class ContactType extends AbstractType
                 'label' => 'Votre numéro de téléphone',
                 'attr' => ['placeholder' => 'Entrez votre numéro de téléphone',
                 'class' => 'form-control custom-phone-class'],
+                'constraints' => [
+                new Assert\NotBlank(['message' => 'Le numéro de téléphone ne doit pas être vide.']),
+                new Assert\Regex([
+            'pattern' => '/^[0-9\s\+\-]+$/',
+            'message' => 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et les caractères "+" ou "-".',
+                ]),
+        ],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
