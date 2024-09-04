@@ -19,8 +19,12 @@ class ContactController extends AbstractController
 public function showContact(Contact $contact, ManagerRegistry $doctrine): Response
 {
     $entityManager = $doctrine->getManager();
-    $contact->setIsRead(true); // Marque comme lu
-    $entityManager->flush();
+
+    // Marquer le contact comme lu s'il n'est pas encore défini
+    if ($contact->isRead() === null) {
+        $contact->setIsRead(false);
+        $entityManager->flush();
+    }
 
     return $this->render('admin/contact/show.html.twig', [
         'contact' => $contact,
@@ -32,6 +36,7 @@ public function showContact(Contact $contact, ManagerRegistry $doctrine): Respon
     public function contact(Request $request, ManagerRegistry $doctrine, MailerInterface $mailer): Response
     {
         $contact = new Contact();
+        $contact->setIsRead(false);
         $form = $this->createForm(ContactType::class, $contact);
 
         $form->handleRequest($request);
