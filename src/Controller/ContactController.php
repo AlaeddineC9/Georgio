@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ContactController extends AbstractController
 {
@@ -32,15 +33,60 @@ public function showContact(Contact $contact, ManagerRegistry $doctrine): Respon
 }
 
 
-    #[Route('/contact', name: 'contact')]
-    public function contact(Request $request, ManagerRegistry $doctrine, MailerInterface $mailer): Response
-    {
-        $contact = new Contact();
-        $contact->setIsRead(false);
-        $form = $this->createForm(ContactType::class, $contact);
+#[Route('/contact', name: 'contact')]
+public function contact(Request $request, ManagerRegistry $doctrine, MailerInterface $mailer, ValidatorInterface $validator): Response
+{
+    $contact = new Contact();
+    $form = $this->createForm(ContactType::class, $contact);
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+    $form->handleRequest($request);
+
+    $errorMessages = [];
+
+    if ($form->isSubmitted()) {
+        // Validation via Symfony Validator
+        // $errors = $validator->validate($contact);
+        // if (count($errors) > 0) {
+        //     foreach ($errors as $error) {
+        //         $errorMessages[] = $error->getMessage();
+        //     }
+        // }
+
+        // Validation personnalisée via switch-case pour chaque champ
+        switch (true) {
+            // Validation pour le nom (lettres seulement)
+            case !preg_match('/^[a-zA-Z\s]+$/', $contact->getName()):
+                $errorMessages[] = 'Le nom ne doit contenir que des lettres.';
+                break;
+
+            // Validation pour l'email
+            case !filter_var($contact->getEmail(), FILTER_VALIDATE_EMAIL):
+                $errorMessages[] = 'Veuillez entrer une adresse email valide.';
+                break;
+
+            // Validation pour le numéro de téléphone (chiffres, espaces, +, -)
+            case !preg_match('/^[0-9\s\+\-]+$/', $contact->getPhoneNumber()):
+                $errorMessages[] = 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces, "+" ou "-".';
+                break;
+
+            // Validation pour le message (ne doit pas être vide)
+            case empty($contact->getMessage()):
+                $errorMessages[] = 'Le message ne doit pas être vide.';
+                break;
+
+            // Default case pour passer à la validation suivante
+            default:
+                break;
+        }
+
+        // Si des erreurs sont trouvées, les afficher avant soumission
+        if (!empty($errorMessages)) {
+            // Ajout des messages d'erreur avec addFlash
+            foreach ($errorMessages as $message) {
+                $this->addFlash('danger', $message);
+                
+            }
+        } else {
             // Sauvegarde du message dans la base de données
             $entityManager = $doctrine->getManager();
             $entityManager->persist($contact);
@@ -53,8 +99,7 @@ public function showContact(Contact $contact, ManagerRegistry $doctrine): Respon
                 ->subject('Confirmation de votre message')
                 ->html($this->renderView('emails/contact_confirmation.html.twig', [
                     'contact' => $contact,
-                ])
-            );
+                ]));
 
             $mailer->send($clientEmail);
 
@@ -69,14 +114,16 @@ public function showContact(Contact $contact, ManagerRegistry $doctrine): Respon
 
             $mailer->send($adminEmail);
 
-            // Message flash et redirection
+            // Message flash de succès
             $this->addFlash('success', 'Votre message a été envoyé avec succès. Un email de confirmation vous a été envoyé.');
 
+            // Redirection après le succès
             return $this->redirectToRoute('contact');
         }
-
-        return $this->render('contact/index.html.twig', [
-            'contactForm' => $form->createView(),
-        ]);
     }
+
+    return $this->render('contact/index.html.twig', [
+        'contactForm' => $form->createView(),
+    ]);
+}
 }

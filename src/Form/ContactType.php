@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 class ContactType extends AbstractType
 {
@@ -19,7 +21,8 @@ class ContactType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Votre nom',
                 'attr' => ['placeholder' => 'Entrez votre nom',
-                'class' => 'form-control custom-name-class'],
+                'class' => 'form-control custom-name-class',
+            'id'=> 'name-input'],
                 'constraints' => [
                 new Assert\NotBlank(['message' => 'Le nom ne doit pas être vide.']),
                 new Assert\Length(['max' => 80, 'maxMessage' => 'Le nom ne peut pas dépasser 80 caractères.']),
@@ -32,12 +35,14 @@ class ContactType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Votre email',
                 'attr' => ['placeholder' => 'Entrez votre email',
-                'class' => 'form-control custom-email-class'],
+                'class' => 'form-control custom-email-class',
+            'id'=> 'email-input'],
             ])
             ->add('phone_number', TextType::class, [
                 'label' => 'Votre numéro de téléphone',
                 'attr' => ['placeholder' => 'Entrez votre numéro de téléphone',
-                'class' => 'form-control custom-phone-class'],
+                'class' => 'form-control custom-phone-class',
+            'id'=> 'phone-input'],
                 'constraints' => [
                 new Assert\NotBlank(['message' => 'Le numéro de téléphone ne doit pas être vide.']),
                 new Assert\Regex([
@@ -49,7 +54,8 @@ class ContactType extends AbstractType
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
                 'attr' => ['placeholder' => 'Entrez votre message',
-                'class' => 'form-control custom-message-class'],
+                'class' => 'form-control custom-message-class',
+            'id'=> 'message-input'],
             ]);
     }
 
