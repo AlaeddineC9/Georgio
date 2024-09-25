@@ -61,6 +61,18 @@
             "./tests/bootstrap.php"
         ]
     },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "0f18b4decdf5695d692c1d0dfd65516a07a6adf1"
+        },
+        "files": [
+            "./public/.htaccess"
+        ]
+    },
     "symfony/asset-mapper": {
         "version": "7.1",
         "recipe": {
@@ -280,6 +292,18 @@
     },
     "symfony/ux-turbo": {
         "version": "v2.18.0"
+    },
+    "symfony/ux-vue": {
+        "version": "2.19",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.9",
+            "ref": "7a6b5e211acc7b10b7190e704b40f6d2bca01adf"
+        },
+        "files": [
+            "./assets/vue/controllers/Hello.vue"
+        ]
     },
     "symfony/validator": {
         "version": "7.1",
