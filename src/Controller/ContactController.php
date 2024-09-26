@@ -94,7 +94,7 @@ public function contact(Request $request, ManagerRegistry $doctrine, MailerInter
 
             // Envoi de l'email de confirmation au client
             $clientEmail = (new Email())
-                ->from('noreply@aubergegeorgio.com') // Remplacez par votre adresse email d'envoi
+                ->from('restaurant@aubergegeorgio.fr') // Remplacez par votre adresse email d'envoi
                 ->to($contact->getEmail()) // Email du client
                 ->subject('Confirmation de votre message')
                 ->html($this->renderView('emails/contact_confirmation.html.twig', [
@@ -105,8 +105,8 @@ public function contact(Request $request, ManagerRegistry $doctrine, MailerInter
 
             // Envoi de l'email de notification à l'administrateur
             $adminEmail = (new Email())
-                ->from('noreply@aubergegeorgio.com')
-                ->to('admin@aubergegeorgio.com') // Remplacez par l'adresse email de l'administrateur
+                ->from('restaurant@aubergegeorgio.fr')
+                ->to('lepharaon9@hotmail.fr') // Remplacez par l'adresse email de l'administrateur
                 ->subject('Nouveau message de contact')
                 ->html($this->renderView('emails/admin_contact_notification.html.twig', [
                     'contact' => $contact,
