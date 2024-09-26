@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5dbdecfae327d3efcafe9126f7c4e996",
+    "content-hash": "70a083ce03c148629873a493b45a4b3f",
     "packages": [
         {
             "name": "composer/semver",
@@ -7338,16 +7338,16 @@
         },
         {
             "name": "symfony/ux-vue",
-            "version": "v2.19.3",
+            "version": "v2.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-vue.git",
-                "reference": "3f2966b0677f2b025bf3966fc50ee8e43f8f1caf"
+                "reference": "fbd874a7f973411b1e3b939a59bf43b27ac1cfc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-vue/zipball/3f2966b0677f2b025bf3966fc50ee8e43f8f1caf",
-                "reference": "3f2966b0677f2b025bf3966fc50ee8e43f8f1caf",
+                "url": "https://api.github.com/repos/symfony/ux-vue/zipball/fbd874a7f973411b1e3b939a59bf43b27ac1cfc1",
+                "reference": "fbd874a7f973411b1e3b939a59bf43b27ac1cfc1",
                 "shasum": ""
             },
             "require": {
@@ -7398,7 +7398,7 @@
                 "symfony-ux"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-vue/tree/v2.19.3"
+                "source": "https://github.com/symfony/ux-vue/tree/v2.20.0"
             },
             "funding": [
                 {
@@ -7414,7 +7414,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-14T04:55:38+00:00"
+            "time": "2024-09-24T09:27:42+00:00"
         },
         {
             "name": "symfony/validator",
