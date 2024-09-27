@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70a083ce03c148629873a493b45a4b3f",
+    "content-hash": "97591a2dfad0d5c8b1b98e4952c89321",
     "packages": [
         {
             "name": "composer/semver",
@@ -7240,46 +7240,35 @@
             "time": "2024-05-31T14:57:53+00:00"
         },
         {
-            "name": "symfony/ux-turbo",
-            "version": "v2.19.3",
+            "name": "symfony/ux-icons",
+            "version": "v2.20.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/ux-turbo.git",
-                "reference": "4a38f267193017958d487171c0a86e64f36164a3"
+                "url": "https://github.com/symfony/ux-icons.git",
+                "reference": "07328c6d3cf480f7d5dafdf621f0d54323e23035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-turbo/zipball/4a38f267193017958d487171c0a86e64f36164a3",
-                "reference": "4a38f267193017958d487171c0a86e64f36164a3",
+                "url": "https://api.github.com/repos/symfony/ux-icons/zipball/07328c6d3cf480f7d5dafdf621f0d54323e23035",
+                "reference": "07328c6d3cf480f7d5dafdf621f0d54323e23035",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1",
-                "symfony/stimulus-bundle": "^2.9.1"
+                "symfony/framework-bundle": "^6.4|^7.0",
+                "symfony/twig-bundle": "^6.4|^7.0"
             },
             "conflict": {
                 "symfony/flex": "<1.13"
             },
             "require-dev": {
-                "dbrekelmans/bdi": "dev-main",
-                "doctrine/doctrine-bundle": "^2.4.3",
-                "doctrine/orm": "^2.8 | 3.0",
-                "phpstan/phpstan": "^1.10",
-                "symfony/debug-bundle": "^5.4|^6.0|^7.0",
-                "symfony/expression-language": "^5.4|^6.0|^7.0",
-                "symfony/form": "^5.4|^6.0|^7.0",
-                "symfony/framework-bundle": "^5.4|^6.0|^7.0",
-                "symfony/mercure-bundle": "^0.3.7",
-                "symfony/messenger": "^5.4|^6.0|^7.0",
-                "symfony/panther": "^1.0|^2.0",
-                "symfony/phpunit-bridge": "^5.4|^6.0|^7.0",
-                "symfony/process": "^5.4|6.3.*|^7.0",
-                "symfony/property-access": "^5.4|^6.0|^7.0",
-                "symfony/security-core": "^5.4|^6.0|^7.0",
-                "symfony/stopwatch": "^5.4|^6.0|^7.0",
-                "symfony/twig-bundle": "^5.4|^6.0|^7.0",
-                "symfony/web-profiler-bundle": "^5.4|^6.0|^7.0",
-                "symfony/webpack-encore-bundle": "^2.1.1"
+                "psr/log": "^2|^3",
+                "symfony/asset-mapper": "^6.4|^7.0",
+                "symfony/console": "^6.4|^7.0",
+                "symfony/http-client": "6.4|^7.0",
+                "symfony/phpunit-bridge": "^6.3|^7.0",
+                "symfony/ux-twig-component": "^2.14",
+                "zenstruck/console-test": "^1.5"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -7290,7 +7279,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\UX\\Turbo\\": "src/"
+                    "Symfony\\UX\\Icons\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -7299,26 +7288,28 @@
             ],
             "authors": [
                 {
-                    "name": "Kévin Dunglas",
-                    "email": "kevin@dunglas.fr"
+                    "name": "Kevin Bond",
+                    "email": "kevinbond@gmail.com"
+                },
+                {
+                    "name": "Simon André",
+                    "email": "smn.andre@gmail.com"
                 },
                 {
                     "name": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Hotwire Turbo integration for Symfony",
+            "description": "Renders local and remote SVG icons in your Twig templates.",
             "homepage": "https://symfony.com",
             "keywords": [
-                "hotwire",
-                "javascript",
-                "mercure",
+                "icons",
+                "svg",
                 "symfony-ux",
-                "turbo",
-                "turbo-stream"
+                "twig"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-turbo/tree/v2.19.3"
+                "source": "https://github.com/symfony/ux-icons/tree/v2.20.0"
             },
             "funding": [
                 {
@@ -7334,33 +7325,42 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-14T04:55:38+00:00"
+            "time": "2024-09-18T14:55:01+00:00"
         },
         {
-            "name": "symfony/ux-vue",
+            "name": "symfony/ux-twig-component",
             "version": "v2.20.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/ux-vue.git",
-                "reference": "fbd874a7f973411b1e3b939a59bf43b27ac1cfc1"
+                "url": "https://github.com/symfony/ux-twig-component.git",
+                "reference": "edcd13daa4566435fbfc8b9766dbcfebb679384f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-vue/zipball/fbd874a7f973411b1e3b939a59bf43b27ac1cfc1",
-                "reference": "fbd874a7f973411b1e3b939a59bf43b27ac1cfc1",
+                "url": "https://api.github.com/repos/symfony/ux-twig-component/zipball/edcd13daa4566435fbfc8b9766dbcfebb679384f",
+                "reference": "edcd13daa4566435fbfc8b9766dbcfebb679384f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1",
-                "symfony/stimulus-bundle": "^2.9.1"
+                "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+                "symfony/deprecation-contracts": "^2.2|^3.0",
+                "symfony/event-dispatcher": "^5.4|^6.0|^7.0",
+                "symfony/property-access": "^5.4|^6.0|^7.0",
+                "twig/twig": "^3.8"
+            },
+            "conflict": {
+                "symfony/config": "<5.4.0"
             },
             "require-dev": {
-                "symfony/asset-mapper": "^6.3|^7.0",
-                "symfony/finder": "^5.4|^6.0|^7.0",
+                "symfony/console": "^5.4|^6.0|^7.0",
+                "symfony/css-selector": "^5.4|^6.0|^7.0",
+                "symfony/dom-crawler": "^5.4|^6.0|^7.0",
                 "symfony/framework-bundle": "^5.4|^6.0|^7.0",
-                "symfony/phpunit-bridge": "^5.4|^6.0|^7.0",
+                "symfony/phpunit-bridge": "^6.0|^7.0",
+                "symfony/stimulus-bundle": "^2.9.1",
                 "symfony/twig-bundle": "^5.4|^6.0|^7.0",
-                "symfony/var-dumper": "^5.4|^6.0|^7.0"
+                "symfony/webpack-encore-bundle": "^1.15"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -7371,7 +7371,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\UX\\Vue\\": "src/"
+                    "Symfony\\UX\\TwigComponent\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -7380,25 +7380,19 @@
             ],
             "authors": [
                 {
-                    "name": "Titouan Galopin",
-                    "email": "galopintitouan@gmail.com"
-                },
-                {
-                    "name": "Thibault Richard",
-                    "email": "thibault.richard62@gmail.com"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Integration of Vue.js in Symfony",
+            "description": "Twig components for Symfony",
             "homepage": "https://symfony.com",
             "keywords": [
-                "symfony-ux"
+                "components",
+                "symfony-ux",
+                "twig"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-vue/tree/v2.20.0"
+                "source": "https://github.com/symfony/ux-twig-component/tree/v2.20.0"
             },
             "funding": [
                 {
@@ -7414,7 +7408,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-24T09:27:42+00:00"
+            "time": "2024-09-24T09:36:36+00:00"
         },
         {
             "name": "symfony/validator",

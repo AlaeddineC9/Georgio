@@ -50,4 +50,56 @@ return [
     '@symfony/ux-vue' => [
         'path' => './vendor/symfony/ux-vue/assets/dist/loader.js',
     ],
+    '@swup/fade-theme' => [
+        'version' => '1.0.5',
+    ],
+    '@swup/slide-theme' => [
+        'version' => '1.0.5',
+    ],
+    '@swup/forms-plugin' => [
+        'version' => '2.0.1',
+    ],
+    '@swup/plugin' => [
+        'version' => '2.0.3',
+    ],
+    'swup' => [
+        'version' => '3.1.1',
+    ],
+    'delegate-it' => [
+        'version' => '6.0.1',
+    ],
+    '@swup/debug-plugin' => [
+        'version' => '3.0.0',
+    ],
+    'react' => [
+        'version' => '18.3.1',
+    ],
+    'react-dom' => [
+        'version' => '18.3.1',
+    ],
+    'scheduler' => [
+        'version' => '0.23.2',
+    ],
+    '@symfony/ux-react' => [
+        'path' => './vendor/symfony/ux-react/assets/dist/loader.js',
+    ],
+    'svelte/internal' => [
+        'version' => '3.59.2',
+    ],
+    '@symfony/ux-svelte' => [
+        'path' => './vendor/symfony/ux-svelte/assets/dist/loader.js',
+    ],
+    'chart.js' => [
+        'version' => '3.9.1',
+    ],
+    'tom-select' => [
+        'version' => '2.3.1',
+    ],
+    'cropperjs' => [
+        'version' => '1.6.2',
+    ],
+    'cropperjs/dist/cropper.min.css' => [
+        'version' => '1.6.2',
+        'type' => 'css',
+    ],
 ];

@@ -10,11 +10,13 @@ Encore
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
     .setPublicPath('/build')
-    .addEntry('app', './assets/app.js')
     .enableStimulusBridge('./assets/controllers.json')
+    .addEntry('app', './assets/app.js')
     .splitEntryChunks()
 
-    .enableVueLoader()
+    
+
+    .enableVueLoader(() => {}, { version: 3 })
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
@@ -22,10 +24,9 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     // Ajoutez ceci pour supporter Vue.js
-    .enableVueLoader(() => {}, { version: 2 })
-    .configureBabel(null, (config) => {
-        config.plugins.push('@babel/plugin-transform-class-properties');
-    })
+    .enableVueLoader(() => {})
+    
+    .configureBabel(null)
     .enableSassLoader()
     .enableTypeScriptLoader();
 
