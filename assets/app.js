@@ -19,3 +19,6 @@ const application = startStimulusApp();
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 
 
+
+registerVueControllerComponents(require.context('./vue/controllers', true, /\.vue$/));
+registerVueControllerComponents();

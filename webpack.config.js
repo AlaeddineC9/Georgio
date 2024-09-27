@@ -14,6 +14,8 @@ Encore
     .addEntry('app', './assets/app.js')
     .splitEntryChunks()
 
+    .enableVueLoader()
+
     
 
     .enableVueLoader(() => {}, { version: 3 })
