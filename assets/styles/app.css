@@ -943,8 +943,11 @@ body {
         flex-direction: column;
         align-items: center;
     }
+    .info h2 {
+        font-size: 30px;
+    }
     .info img {
-        width: 50%;
+        width: 75%;
         border-radius: 12px;
         box-shadow: 0 8px 12px rgba(0.4, 0.4, 0.4, 0.6);
         margin-left: auto;
@@ -956,6 +959,7 @@ body {
         padding-left: 20px;
         margin-top: 30px;
         margin-bottom: 60px;
+        font-size: 20px;
     }
     .carousel-inner {
         width: 800px;
@@ -963,15 +967,15 @@ body {
         padding-right: 0px;
     }
     .example {
-       margin-top: 0px;
+    margin-top: 0px;
     }
     .example h1 {
         font-size: 8rem;
-       padding-top: 3rem;
+        padding-top: 3rem;
     }
     #carouselExampleControls {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
     .carousel-item {
         padding-left: 80px;
@@ -979,8 +983,8 @@ body {
         
     }
     .carousel-item img {
-        width: 540px;
-        height: 40rem;
+        width: 440px;
+        height: 340;
         margin-top: 50px;
         margin-bottom: 50px;
         margin-left: 64px;
