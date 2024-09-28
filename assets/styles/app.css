@@ -984,6 +984,8 @@ body {
     }
     .example {
     margin-top: 0px;
+    padding-left: 90px;
+    padding-right: 100px;
     }
     .example h1 {
         font-size: 8rem;
@@ -1147,9 +1149,9 @@ body {
         align-items: center;
     }
     .category-card {
-        width: 120%;
+        width: 110%;
         height: 450px;
-        margin-left: -45px;
+        margin-left: -23px;
         margin-right: 0;
     }
     .category-card img{
