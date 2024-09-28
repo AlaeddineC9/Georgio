@@ -836,7 +836,6 @@ body {
 }
 
 .logo {
-    margin-left: 0px;
     align-items: center;
     display: inline;
     justify-content: center;
@@ -847,7 +846,7 @@ body {
 .logo img {
     position: absolute;
     width: 46px;
-    margin-left: 180px;
+    margin-left: 240px;
 }
 
 .nav-links {
@@ -1149,8 +1148,8 @@ body {
         align-items: center;
     }
     .category-card {
-        width: 133%;
-        height: 355px;
+        width: 113%;
+        height: 402px;
         margin-left: -23px;
         margin-right: 0;
     }
