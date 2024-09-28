@@ -1081,8 +1081,8 @@ body {
 
     }
 .modal-header{
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .modal-title{
     font-size: 32px;
@@ -1104,8 +1104,8 @@ body {
     border: 1px solid #ced4da;
     box-shadow: 2px 1px 6px #4e4e4e;
     font-size: 32px;
-    width: 452px;
-    height: 59px;
+    width: 322px;
+    height: 44px;
     font-size: 20px;
 }
 ::placeholder {
@@ -1116,7 +1116,7 @@ body {
 }
 
 .modal-body label {
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Jacques Francois', serif;
     color: #6C846B;
 }
