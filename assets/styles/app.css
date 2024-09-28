@@ -831,7 +831,7 @@ body {
     align-items: center;
     position: relative;
     padding-top: 2px;
-    padding-bottom: 8px;
+    padding-bottom: 48px;
     color: #6C846B;
 }
 
@@ -844,9 +844,9 @@ body {
 }
 
 .logo img {
-    position: relative;
+    position: absolute;
     width: 46px;
-    margin-right: 415px;
+    margin-left: 174px;
 }
 
 .nav-links {
