@@ -847,7 +847,7 @@ body {
 .logo img {
     position: absolute;
     width: 46px;
-    margin-left: 166px;
+    margin-left: 206px;
 }
 
 .nav-links {
@@ -891,7 +891,9 @@ body {
 }
 
 .burger {
-    display: ruby;
+    display: ruby-text;
+    padding-bottom: 0px;
+    padding-top: 5px;
 }
 .burger div{
     width: 25px;
