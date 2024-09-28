@@ -1057,8 +1057,8 @@ body {
     #modalCarousel .carousel-item img {
         width: 700px;
         height: 32rem;
-        margin-top: 0px;
-        margin-bottom: 50px;
+        margin-top: 24px;
+        margin-bottom: 24px;
         margin-left: 225px;
         margin-right: 50px;
     }
