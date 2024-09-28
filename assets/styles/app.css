@@ -1192,10 +1192,13 @@ body {
         padding-right: 20px;
     }
     .footer p{
-        font-size: 1.8rem;
+        font-size: 12px;
     }
     .footer-bottom p{
-        font-size: 1.2rem;
+        font-size: 8px;
+    }
+    .footer-bottom a{
+        font-size: 8px;
     }
     .footer-bottom{
     padding-left: 5px;
@@ -1214,11 +1217,14 @@ body {
         font-size: 2rem;
     }
     .fconatct a{
-        font-size: 1.8rem;
-        width: 200px;
-        height: 50px;
+        font-size: 12px;
+        width: 96px;
+        height: 29px;
         margin-bottom: 6px;
         padding-top: 5px;
+    }
+    .socials i{
+        font-size: 16px;
     }
 }
 
