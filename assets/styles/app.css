@@ -933,11 +933,11 @@ body {
         font-size: 32px;
     }
     .hero button {
-        width:120px;
+        width:182px;
         font-size: 30px;
-        height: 58px;
+        height: 60px;
         margin-bottom: 80px;
-        margin-top: 40px;
+        margin-top: 20px;
     }
     .info {
         flex-direction: column;
