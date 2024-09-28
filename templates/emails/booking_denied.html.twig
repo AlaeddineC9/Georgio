@@ -1,0 +1,53 @@
+{# templates/emails/booking_denied.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Réservation refusée</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 {
+            color: #cc0000;
+        }
+        .container {
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Réservation refusée</h1>
+        <p>Bonjour {{ booking.name }},</p>
+
+        <p>Nous sommes désolés de vous informer que votre réservation à l'Auberge Georgio a été refusée.</p>
+        <p><strong>Détails de votre réservation :</strong></p>
+        <ul>
+            <li><strong>Date :</strong> {{ booking.date|date('d/m/Y H:i') }}</li>
+            <li><strong>Nombre d'invités :</strong> {{ booking.nbGuest }}</li>
+            <li><strong>Email :</strong> {{ booking.email }}</li>
+            <li><strong>Téléphone :</strong> {{ booking.phoneNumber }}</li>
+            <li><strong>Demande spéciale :</strong> {{ booking.specialRequest }}</li>
+        </ul>
+
+        <p>Si vous avez des questions ou souhaitez faire une nouvelle réservation, n'hésitez pas à nous contacter.</p>
+
+        <div class="footer">
+            <p>Cet email est généré automatiquement. Merci de ne pas y répondre.</p>
+        </div>
+    </div>
+</body>
+</html>
