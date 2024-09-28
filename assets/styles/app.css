@@ -917,6 +917,9 @@ body {
     width: 100%;
     z-index: 1000;
 }
+.hero {
+    height: 73vh;
+}
     .hero h1 {
         font-size: 43px;
         margin-bottom: 20px;
