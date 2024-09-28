@@ -964,7 +964,7 @@ body {
     .carousel-inner {
         width: 800px;
         padding-left: 0px;
-        padding-right: 0px;
+        padding-right: 400px;
     }
     .example {
     margin-top: 0px;
@@ -983,11 +983,11 @@ body {
         
     }
     .carousel-item img {
-        width: 440px;
-        height: 340;
+        width: 312px;
+        height: 330;
         margin-top: 50px;
         margin-bottom: 50px;
-        margin-left: 64px;
+        margin-left: 0px;
         margin-right: 50px;
     }
     .carousel-control-prev, .carousel-control-next {
