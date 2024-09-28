@@ -7,6 +7,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use App\Entity\Booking;
 use App\Entity\Galerie;
 use App\Entity\Contact;
@@ -101,10 +103,20 @@ public function listBookings(EntityManagerInterface $entityManager): Response
 
 
     #[Route('/admin/confirm-booking/{id}', name: 'admin_confirm_booking')]
-    public function confirmBooking(Request $request, Booking $booking): Response
+    public function confirmBooking(Request $request, Booking $booking, MailerInterface $mailer): Response
     {
         $booking->setIsVerified(true);
         $this->entityManager->flush();
+
+        $email = (new Email())
+        ->from('restaurant@aubergegeorgio.fr')
+        ->to($booking->getEmail()) // Email du client
+        ->subject('Confirmation de votre réservation')
+        ->html($this->renderView('emails/booking_confirmation.html.twig', [
+            'booking' => $booking,
+        ]));
+
+        $mailer->send($email);
 
         $this->addFlash('success', 'La réservation a été confirmée avec succès.');
 
@@ -112,10 +124,20 @@ public function listBookings(EntityManagerInterface $entityManager): Response
     }
 
     #[Route('/admin/deny-booking/{id}', name: 'admin_deny_booking')]
-    public function denyBooking(Request $request, Booking $booking): Response
+    public function denyBooking(Request $request, Booking $booking, MailerInterface $mailer): Response
     {
         $booking->setIsVerified(false);
         $this->entityManager->flush();
+
+        $email = (new Email())
+        ->from('restaurant@aubergegeorgio.fr')
+        ->to($booking->getEmail()) // Email du client
+        ->subject('Réservation refusée')
+        ->html($this->renderView('emails/booking_denied.html.twig', [
+            'booking' => $booking,
+        ]));
+
+        $mailer->send($email);
 
         $this->addFlash('success', 'La réservation a été refusée avec succès.');
 

@@ -113,7 +113,7 @@ class HomeController extends AbstractController
 
             // Envoyer un email de confirmation au client
             $clientEmail = (new Email())
-                ->from('noreply@aubergegeorgio.com') // Remplacez par votre adresse email d'envoi
+                ->from('restaurant@aubergegeorgio.fr') // Remplacez par votre adresse email d'envoi
                 ->to($booking->getEmail()) // Email du client
                 ->subject('Confirmation de votre réservation')
                 ->html($this->renderView('emails/confirmation.html.twig', [
@@ -127,8 +127,8 @@ class HomeController extends AbstractController
 
             // Envoyer un email de notification à l'administrateur
             $adminEmail = (new Email())
-                ->from('noreply@aubergegeorgio.com')
-                ->to('admin@aubergegeorgio.com') // Remplacez par l'adresse email de l'administrateur
+                ->from('restaurant@aubergegeorgio.fr')
+                ->to('alaeddinechraiti@gmail.com') // Remplacez par l'adresse email de l'administrateur
                 ->subject('Nouvelle Réservation')
                 ->html($this->renderView('emails/admin_notification.html.twig', [
                     'booking' => $booking,
