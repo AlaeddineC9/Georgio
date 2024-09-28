@@ -1102,16 +1102,16 @@ body {
     padding: 10px;
     border-radius: 16px;
     border: 1px solid #ced4da;
-    box-shadow: 1px 1px 6px #4e4e4e;
+    box-shadow: 2px 1px 6px #4e4e4e;
     font-size: 32px;
     width: 452px;
-    height: 77px;
-    font-size: 24px;
+    height: 59px;
+    font-size: 20px;
 }
 ::placeholder {
     color: #888; /* Couleur du texte du placeholder */
     font-style: italic; /* Style du texte */
-    font-size: 24px; /* Taille de la police */
+    font-size: 20px; /* Taille de la police */
     opacity: 0.5; /* Opacité du texte (1 est complètement visible) */
 }
 
