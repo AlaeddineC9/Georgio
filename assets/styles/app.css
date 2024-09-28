@@ -1015,6 +1015,13 @@ body {
     .carousel-control-next {
         right: 10px;
     }
+    .horaires h2 {
+        font-size: 40px;
+        padding-left: 8px;
+    }
+    .horaires p {
+        font-size: 22px;
+    }
     .modal-dialog {
         max-width: 100%;
         margin: 1rem;
