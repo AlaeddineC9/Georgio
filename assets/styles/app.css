@@ -837,7 +837,7 @@ body {
 
 .logo {
     align-items: center;
-    display: inline;
+    display: flex;
     justify-content: center;
     text-align: center;
     width: 100%;
