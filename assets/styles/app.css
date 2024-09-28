@@ -1207,13 +1207,16 @@ body {
         font-size: 1.8rem;
     }
     .contact-form button{
-        font-size: 1.8rem;
-        width: 300px;
-        height: 80px;
+        font-size: 30px;
+        width: 264px;
+        height: 60px;
         margin-bottom: 40px;
     }
+    .contact-title h1{
+        font-size: 48px;
+    }
     .contact-form{
-        font-size: 2rem;
+        font-size: 24px;
     }
     .fconatct a{
         font-size: 12px;
