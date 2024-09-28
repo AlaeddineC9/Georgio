@@ -847,7 +847,7 @@ body {
 .logo img {
     position: absolute;
     width: 46px;
-    margin-left: 246px;
+    margin-left: 180px;
 }
 
 .nav-links {
@@ -988,7 +988,7 @@ body {
     padding-right: 100px;
     }
     .example h1 {
-        font-size: 8rem;
+        font-size: 5rem;
         padding-top: 3rem;
     }
     #carouselExampleControls {
@@ -1149,15 +1149,15 @@ body {
         align-items: center;
     }
     .category-card {
-        width: 110%;
-        height: 450px;
+        width: 133%;
+        height: 355px;
         margin-left: -23px;
         margin-right: 0;
     }
     .category-card img{
         width: 100%;
         max-width: 450px;
-        max-height: 270px;
+        max-height: 207px;
     }
     .category-card h2 {
         width: 85%;
