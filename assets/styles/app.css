@@ -1052,6 +1052,9 @@ body {
         font-size: 24px;
         font-weight: bold;
     }
+    .menu-item{
+        font-size: 16px;
+    }
     #modalCarousel .carousel-item img {
         width: 700px;
         height: 32rem;
