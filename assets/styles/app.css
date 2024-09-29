@@ -823,42 +823,41 @@ body {
     display: block;
 }
 @media (max-width: 576px) {
-    .sidenav {
+    #mySidenav {
         height: 45%; /* Hauteur totale de l'écran */
         width: 0; /* Largeur initiale fermée */
         position: fixed; /* Positionnement fixe */
         z-index: 2; /* Toujours au-dessus */
         top: 0;
         left: 0;
-        background-color: #333; /* Couleur de fond */
+        background-color: #ffffff; /* Couleur de fond */
         overflow-x: hidden; /* Désactive le défilement horizontal */
         transition: 0.5s; /* Animation de transition */
         padding-top: 60px; /* Espace en haut */
     }
     
     /* Largeur de la sidebar quand elle est active */
-    .sidenav.active {
+    #mySidenav.active {
         width: 250px; /* Largeur quand ouverte */
     }
     
     /* Bouton pour fermer le menu */
-    .sidenav .close-btn {
+    #mySidenav .close-btn {
         position: absolute;
         top: 20px;
         right: 25px;
-        font-size: 36px;
+        font-size: 24px;
         color: #6C846B;
         cursor: pointer;
     }
     
     /* Liens dans le menu */
-    .sidenav .nav-links {
+    #mySidenav .nav-links {
         padding: 0;
         margin: 0;
-        list-style-type: none;
     }
     
-    .sidenav .nav-links li {
+    #mySidenav .nav-links li {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 25px;
@@ -867,13 +866,13 @@ body {
         transition: 0.3s;
     }
     
-    .sidenav .nav-links li a {
+    #mySidenav .nav-links li a {
         text-decoration: none;
         color: #6C846B;
         font-size: 24px;
     }
     
-    .sidenav .nav-links li:hover {
+    #mySidenav .nav-links li:hover {
         color: #f1f1f1;
     }
     
