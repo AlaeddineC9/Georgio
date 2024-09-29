@@ -67,29 +67,7 @@ body {
     border-radius: 12px;
 }
 
-.burger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 0px;
-    width: 25px;
-    
-    z-index: 1001; /* Assurez-vous qu'il est au-dessus de la navbar */
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 337px;
 
-
-}
-
-.burger div {
-    width: 25px;
-    height: 6px;
-    background-color: #6C846B;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
 
 .hero {
     position: relative;
