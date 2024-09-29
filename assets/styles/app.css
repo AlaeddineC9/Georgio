@@ -1225,9 +1225,11 @@ body {
         margin-bottom: 6px;
         padding-top: 5px;
     }
-    .socials i{
+    .socials{
         display: flex;
         justify-content: center;
+    }
+    .socials i{
         font-size: 16px;
     }
 }
