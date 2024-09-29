@@ -985,6 +985,7 @@ body {
     .example h1 {
         font-size: 5rem;
         padding-top: 3rem;
+        margin-left: -46px;
     }
     #carouselExampleControls {
         padding-left: 50px;
@@ -1149,6 +1150,7 @@ body {
         width: 278px;
         height: 332px;
         margin-right: 0;
+        margin-left: -80px;
     }
     .category-card img{
         width: 100%;
