@@ -855,6 +855,11 @@ body {
     #mySidenav .nav-links {
         padding: 0;
         margin: 0;
+        z-index: 1;
+        color: #6C846B;
+        background-color: #ffffff;
+
+
     }
     
     #mySidenav .nav-links li {
@@ -900,7 +905,8 @@ body {
     .burger div {
         width: 25px;
         height: 3px;
-        background-color: #333;
+        background-color: #6C846B;
+        border-radius: 5px;
         margin: 5px;
         transition: 0.3s;
     }
