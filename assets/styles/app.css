@@ -957,7 +957,7 @@ body {
         align-items: center;
     }
     .info h2 {
-        font-size: 30px;
+        font-size: 26px;
     }
     .info img {
         width: 75%;
@@ -972,7 +972,7 @@ body {
         padding-left: 20px;
         margin-top: 30px;
         margin-bottom: 60px;
-        font-size: 20px;
+        font-size: 16px;
     }
     .carousel-inner {
         width: 800px;
@@ -1220,7 +1220,7 @@ body {
         width: 264px;
         height: 60px;
         margin-bottom: 40px;
-        margin-top: 20px;
+        margin-top: 36px;
     }
     .contact-title h1{
         font-size: 38px;
