@@ -1,7 +1,28 @@
 body {
     background-color: #ffffff;
 }
+.navbar {
+    background-color: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto;  
+    padding: 10px 20px;
+}
 
+.navbar.sticky {
+    background-color: #ffffff;
+    opacity: 0.8;
+}
 
 .logo img {
     width: 60px;
@@ -11,106 +32,63 @@ body {
     transition: left 0.3s ease;
 
 }
-/* Styles pour le menu burger */
-.sidenav {
-    height: 45%; /* Hauteur totale de l'écran */
-    width: 0; /* Largeur initiale fermée */
-    position: fixed; /* Positionnement fixe */
-    z-index: 2; /* Toujours au-dessus */
-    top: 0;
-    left: 0;
-    background-color: #333; /* Couleur de fond */
-    overflow-x: hidden; /* Désactive le défilement horizontal */
-    transition: 0.5s; /* Animation de transition */
-    padding-top: 60px; /* Espace en haut */
-}
 
-/* Largeur de la sidebar quand elle est active */
-.sidenav.active {
-    width: 250px; /* Largeur quand ouverte */
-}
-
-/* Bouton pour fermer le menu */
-.sidenav .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 36px;
-    color: #6C846B;
-    cursor: pointer;
-}
-
-/* Liens dans le menu */
-.sidenav .nav-links {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
-
-.sidenav .nav-links li {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #6C846B;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav .nav-links li a {
-    text-decoration: none;
-    color: #6C846B;
-    font-size: 24px;
-}
-
-.sidenav .nav-links li:hover {
-    color: #f1f1f1;
-}
-
-.navbar {
-    position: fixed;
-    width: 100%;
-    background: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
+.nav-links {
+    list-style: none;
     display: flex;
-    justify-content: space-between;
+    padding-right: 500px;
+    
+    
+}
+
+.nav-links li {
+    display: block;
+    justify-content: center;
     align-items: center;
-    padding: 10px 20px;
+    text-align: center;
+    margin-left: 150px;
+    width: 100px;
+}
+
+.nav-links a {
+    
+    text-decoration: none;
+    color: #6C846B;
+    font-size: 32px;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    font-family: 'Jacques Francois', serif;
+}
+
+.nav-links a:hover {
+    color: #0E7331;
+    transform: scale(1.09);
+    transition: 200ms;
+    border-radius: 12px;
 }
 
 .burger {
+    display: none;
     cursor: pointer;
-    display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    height: 0px;
     width: 25px;
-    height: 25px;
+    margin-right: 900px;
+    z-index: 1001; /* Assurez-vous qu'il est au-dessus de la navbar */
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+
 }
 
 .burger div {
     width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 5px;
-    transition: 0.3s;
+    height: 6px;
+    background-color: #6C846B;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
-
-.burger.toggle div:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.burger.toggle div:nth-child(2) {
-    opacity: 0;
-}
-
-.burger.toggle div:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-.logo img {
-    height: 40px;
-}
-
 
 .hero {
     position: relative;
@@ -845,115 +823,104 @@ body {
     display: block;
 }
 @media (max-width: 576px) {
-.navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding-top: 2px;
-    padding-bottom: 48px;
-    padding-left: 15px;
-    padding-right: 15px;
-    color: #6C846B;
-}
-
-.logo {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-}
-
-.logo img {
-    position: absolute;
-    width: 46px;
-    margin-left: 45%;
-}
-
-.nav-links {
-    position: absolute;
-    /* top: 60px; Adjust this value to ensure the menu appears below the burger */
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: flex-start; */
-    align-items: center;
-    text-align: center;
-    background-color: #ffffff;
-    opacity: 0.9;
-    width: 100%; /* Make sure the menu is full-width */
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
-    font-size: 24px;
-    z-index: 1;
-    color: #6C846B;
-}
-.nav-links a{
-    font-size: 24px;
-}
-
-.nav-links.nav-active {
-    transform: translateY(0);
-}
-
-.nav-links li {
-    opacity: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 340px;
-    transition: opacity 0.3s ease 0.3s;
-}
-.nav-links :hover {
-    color: #0E7331;
-    transform: scale(1.09);
-    transition: 200ms;
-    border-radius: 12px;
-}
-.nav-links.nav-active li {
-    opacity: 1;
-}
-
-.burger {
-    display: ruby-text;
-    padding-bottom: 0px;
-    padding-top: 5px;
-}
-.burger div{
-    width: 25px;
-    height: 4px;
-    background-color: #6C846B;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    margin-top: 4px;
-    margin-left: 12px;
-}
-
-.burger.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.burger.toggle .line2 {
-    opacity: 0;
-}
-
-.burger.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-.close-btn {
-    display: none;
-}
-
-.close-btn.show {
-    display: block;
-}
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
+    .sidenav {
+        height: 45%; /* Hauteur totale de l'écran */
+        width: 0; /* Largeur initiale fermée */
+        position: fixed; /* Positionnement fixe */
+        z-index: 2; /* Toujours au-dessus */
+        top: 0;
+        left: 0;
+        background-color: #333; /* Couleur de fond */
+        overflow-x: hidden; /* Désactive le défilement horizontal */
+        transition: 0.5s; /* Animation de transition */
+        padding-top: 60px; /* Espace en haut */
+    }
+    
+    /* Largeur de la sidebar quand elle est active */
+    .sidenav.active {
+        width: 250px; /* Largeur quand ouverte */
+    }
+    
+    /* Bouton pour fermer le menu */
+    .sidenav .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 36px;
+        color: #6C846B;
+        cursor: pointer;
+    }
+    
+    /* Liens dans le menu */
+    .sidenav .nav-links {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+    
+    .sidenav .nav-links li {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #6C846B;
+        display: block;
+        transition: 0.3s;
+    }
+    
+    .sidenav .nav-links li a {
+        text-decoration: none;
+        color: #6C846B;
+        font-size: 24px;
+    }
+    
+    .sidenav .nav-links li:hover {
+        color: #f1f1f1;
+    }
+    
+    .navbar {
+        position: fixed;
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+    
+    .burger {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 25px;
+        height: 25px;
+    }
+    
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        margin: 5px;
+        transition: 0.3s;
+    }
+    
+    .burger.toggle div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .burger.toggle div:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .burger.toggle div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    .logo img {
+        height: 40px;
+    }
 .hero {
     height: 73vh;
 }
