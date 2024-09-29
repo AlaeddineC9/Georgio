@@ -1189,6 +1189,7 @@ body {
     .footer-container {
         padding-left: 20px;
         padding-right: 20px;
+        padding-top: 5px;
     }
     .footer p{
         font-size: 12px;
