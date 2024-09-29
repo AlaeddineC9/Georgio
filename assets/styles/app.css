@@ -74,10 +74,11 @@ body {
     justify-content: space-between;
     height: 0px;
     width: 25px;
-    margin-right: 900px;
+    
     z-index: 1001; /* Assurez-vous qu'il est au-dessus de la navbar */
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-right: 337px;
 
 
 }
