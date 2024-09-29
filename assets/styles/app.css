@@ -1176,16 +1176,16 @@ body {
     }
     .service-container {
         flex-direction: column;
-        margin-left: 10px;
+        margin-left: 24px;
         width: 278px;
-        gap: 140px;
+        gap: 24px;
     }
     .service-card {
         width: 100%;
         height: 380px;
     }
     .service-card h2 {
-        height: 120px;
+        height: 80px;
         font-size: 36px;
         text-align: center;
         padding-top: 24px;
