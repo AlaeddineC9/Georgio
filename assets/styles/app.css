@@ -1,28 +1,7 @@
 body {
     background-color: #ffffff;
 }
-.navbar {
-    background-color: #ffffff;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    
-}
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px; 
-    margin: 0 auto;  
-    padding: 10px 20px;
-}
 
-.navbar.sticky {
-    background-color: #ffffff;
-    opacity: 0.8;
-}
 
 .logo img {
     width: 60px;
@@ -32,63 +11,106 @@ body {
     transition: left 0.3s ease;
 
 }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    padding-right: 500px;
-    
-    
+/* Styles pour le menu burger */
+.sidenav {
+    height: 100%; /* Hauteur totale de l'écran */
+    width: 0; /* Largeur initiale fermée */
+    position: fixed; /* Positionnement fixe */
+    z-index: 1; /* Toujours au-dessus */
+    top: 0;
+    left: 0;
+    background-color: #333; /* Couleur de fond */
+    overflow-x: hidden; /* Désactive le défilement horizontal */
+    transition: 0.5s; /* Animation de transition */
+    padding-top: 60px; /* Espace en haut */
 }
 
-.nav-links li {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-left: 150px;
-    width: 100px;
+/* Largeur de la sidebar quand elle est active */
+.sidenav.active {
+    width: 250px; /* Largeur quand ouverte */
 }
 
-.nav-links a {
-    
+/* Bouton pour fermer le menu */
+.sidenav .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Liens dans le menu */
+.sidenav .nav-links {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.sidenav .nav-links li {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    color: #6C846B;
-    font-size: 32px;
-    transition: color 0.3s ease;
-    font-weight: bold;
-    font-family: 'Jacques Francois', serif;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #0E7331;
-    transform: scale(1.09);
-    transition: 200ms;
-    border-radius: 12px;
+.sidenav .nav-links li a {
+    text-decoration: none;
+    color: #818181;
+    font-size: 24px;
+}
+
+.sidenav .nav-links li:hover {
+    color: #f1f1f1;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
 .burger {
-    display: none;
     cursor: pointer;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 0px;
+    justify-content: space-around;
     width: 25px;
-    margin-right: 900px;
-    z-index: 1001; /* Assurez-vous qu'il est au-dessus de la navbar */
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-
+    height: 25px;
 }
 
 .burger div {
     width: 25px;
-    height: 6px;
-    background-color: #6C846B;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    height: 3px;
+    background-color: #333;
+    margin: 5px;
+    transition: 0.3s;
 }
+
+.burger.toggle div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle div:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.toggle div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.logo img {
+    height: 40px;
+}
+
 
 .hero {
     position: relative;
