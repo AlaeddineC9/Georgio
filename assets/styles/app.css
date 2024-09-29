@@ -1153,7 +1153,7 @@ body {
     }
     .category-card {
         width: 278px;
-        height: 332px;
+        height: 380px;
         margin-right: 0;
         margin-left: 0px;
     }
@@ -1176,22 +1176,22 @@ body {
     }
     .service-container {
         flex-direction: column;
-        margin-left: 140px;
-        width: 700px;
+        margin-left: 10px;
+        width: 278px;
         gap: 140px;
     }
     .service-card {
         width: 100%;
-        height: 800px;
+        height: 380px;
     }
     .service-card h2 {
-        height: 150px;
-        font-size: 75px;
+        height: 120px;
+        font-size: 36px;
         text-align: center;
         padding-top: 24px;
     }
     .description-overlay {
-        font-size: 44px;
+        font-size: 24px;
     }
     .footer-container {
         padding-left: 20px;
