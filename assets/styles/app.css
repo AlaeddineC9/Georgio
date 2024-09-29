@@ -268,8 +268,6 @@ body {
 .example {
     background-image: url('../images/fond2.jpg');
     margin-top: 90px;
-    padding-left: 124px;
-    padding-right: 124px;
 }
 .example p {
     font-size: 1.5rem;
