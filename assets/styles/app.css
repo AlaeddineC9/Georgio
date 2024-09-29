@@ -1220,9 +1220,10 @@ body {
         width: 264px;
         height: 60px;
         margin-bottom: 40px;
+        margin-top: 20px;
     }
     .contact-title h1{
-        font-size: 48px;
+        font-size: 38px;
     }
     .contact-form{
         font-size: 24px;
