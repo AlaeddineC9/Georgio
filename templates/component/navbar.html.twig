@@ -20,34 +20,29 @@
 </nav>
 
     <script>
-        // Initialisation d'EasyAdmin
-    document.addEventListener('DOMContentLoaded', () => {
-        window.EasyAdminApp = new App();
-
-        // Script de gestion du menu burger
         const burger = document.querySelector('.burger');
         const closeBtn = document.querySelector('.close-btn');
         const navLinks = document.querySelector('.nav-links');
 
         burger.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-            burger.classList.toggle('toggle');
-            closeBtn.classList.toggle('show');
-        });
+        // Toggle l'affichage du menu burger
+        navLinks.classList.toggle('nav-active');
+        burger.classList.toggle('toggle');
+    });
 
-        closeBtn.addEventListener('click', () => {
+    // Fermer le menu burger lorsque l'utilisateur clique sur un lien du menu
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
             navLinks.classList.remove('nav-active');
-            closeBtn.classList.remove('show');
             burger.classList.remove('toggle');
         });
+    });
 
-        // Fermer le menu lorsque l'utilisateur clique sur un lien
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('nav-active');
-                burger.classList.remove('toggle');
-                closeBtn.classList.remove('show');
-            });
+
+        closeBtn.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            closeBtn.classList.toggle('show'); // Cache le bouton close quand le menu est fermé
+            burger.classList.toggle('hide'); // Réaffiche le menu burger
         });
 
         // Sticky navbar on scroll
@@ -59,45 +54,6 @@
                 navbar.classList.remove('sticky');
             }
         });
-    });
-
-    // Classe App d'EasyAdmin adaptée
-    class App {
-        #sidebarWidthLocalStorageKey;
-        #contentWidthLocalStorageKey;
-
-        constructor() {
-            this.#sidebarWidthLocalStorageKey = 'ea/sidebar/width';
-            this.#contentWidthLocalStorageKey = 'ea/content/width';
-
-            this.#removeHashFormUrl();
-            this.#createMainMenu();
-            this.#createLayoutResizeControls();
-            this.#createNavigationToggler();
-            this.#createSearchHighlight();
-            this.#createFilters();
-            this.#createAutoCompleteFields();
-            this.#createBatchActions();
-            this.#createModalWindowsForDeleteActions();
-            this.#createPopovers();
-            this.#createTooltips();
-
-            document.addEventListener('ea.collection.item-added', () => this.#createAutoCompleteFields());
-        }
-
-        // Méthodes d'initialisation des fonctionnalités EasyAdmin
-        #removeHashFormUrl() { /* Supprime le hash de l'URL pour le formulaire */ }
-        #createMainMenu() { /* Gestion des menus et sous-menus */ }
-        #createLayoutResizeControls() { /* Gestion de la redimension des éléments */ }
-        #createNavigationToggler() { /* Gestion des toggles de navigation */ }
-        #createSearchHighlight() { /* Gestion de la recherche et de la surbrillance */ }
-        #createFilters() { /* Gestion des filtres de la datagrid */ }
-        #createAutoCompleteFields() { /* Gestion des champs de saisie automatique */ }
-        #createBatchActions() { /* Gestion des actions de groupe */ }
-        #createModalWindowsForDeleteActions() { /* Gestion des fenêtres modales de suppression */ }
-        #createPopovers() { /* Gestion des popovers */ }
-        #createTooltips() { /* Gestion des tooltips */ }
-    }
     </script>
     {% endblock %}
 
