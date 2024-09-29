@@ -1176,9 +1176,9 @@ body {
     }
     .service-container {
         flex-direction: column;
-        margin-left: 24px;
+        margin-left: 45%px;
         width: 278px;
-        gap: 24px;
+        gap: 36px;
     }
     .service-card {
         width: 100%;
@@ -1189,7 +1189,7 @@ body {
         height: 80px;
         font-size: 36px;
         text-align: center;
-        padding-top: 24px;
+        padding-top: 8px;
     }
     .description-overlay {
         font-size: 24px;
