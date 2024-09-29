@@ -13,10 +13,10 @@ body {
 }
 /* Styles pour le menu burger */
 .sidenav {
-    height: 100%; /* Hauteur totale de l'écran */
+    height: 45%; /* Hauteur totale de l'écran */
     width: 0; /* Largeur initiale fermée */
     position: fixed; /* Positionnement fixe */
-    z-index: 1; /* Toujours au-dessus */
+    z-index: 2; /* Toujours au-dessus */
     top: 0;
     left: 0;
     background-color: #333; /* Couleur de fond */
@@ -36,7 +36,7 @@ body {
     top: 20px;
     right: 25px;
     font-size: 36px;
-    color: #fff;
+    color: #6C846B;
     cursor: pointer;
 }
 
@@ -51,14 +51,14 @@ body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #6C846B;
     display: block;
     transition: 0.3s;
 }
 
 .sidenav .nav-links li a {
     text-decoration: none;
-    color: #818181;
+    color: #6C846B;
     font-size: 24px;
 }
 
