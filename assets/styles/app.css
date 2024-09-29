@@ -1176,7 +1176,7 @@ body {
     }
     .service-container {
         flex-direction: column;
-        margin-left: 10%;
+        margin-left: 12.5%;
         width: 278px;
         gap: 36px;
     }
