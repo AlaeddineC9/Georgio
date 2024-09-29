@@ -10,7 +10,9 @@
         <div class="line3"></div>
     </div>
     <div id="closeBtn" class="close-btn">&times;</div>
-   
+    <div class="logo">
+        <a href="{{ path('home') }}"><img src="{{ asset('images/logoR.svg') }}" alt="Logo"></a>
+    </div>
 </div>
     
     <!-- Menu burger (sidenav) -->
@@ -22,11 +24,7 @@
             <li><a href="{{ path('contact') }}">Contact</a></li>
         </ul>
     </div>
-     <div class="logo">
-        <a href="{{ path('home') }}"><img src="{{ asset('images/logoR.svg') }}" alt="Logo"></a>
-    </div>
 </nav>
-
 
 <!-- Script de gestion du menu burger -->
 <script>
