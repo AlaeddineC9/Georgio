@@ -142,10 +142,7 @@ $mailer->send($clientEmail);
             $mailer->send($adminEmail);
 
             // Rediriger vers la page d'accueil ou une autre page
-            return $this->render(
-                'emails/confirmation.html.twig',
-                [ 'booking' => $booking ]
-            );      }
+            return $this->redirectToRoute('home');        }
 
         // Passer les images au template
         return $this->render('home/index.html.twig', [
