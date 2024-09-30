@@ -817,8 +817,7 @@ body {
     
     /* Largeur de la sidebar quand elle est active */
     #mySidenav.active {
-        width: 100%; /* Largeur quand ouverte */
-        opacity: 0.9;
+        width: 250px; /* Largeur quand ouverte */
     }
     
     /* Bouton pour fermer le menu */
@@ -830,7 +829,6 @@ body {
         color: #6C846B;
         cursor: pointer;
     }
-
     
     /* Liens dans le menu */
     #mySidenav .nav-links {
