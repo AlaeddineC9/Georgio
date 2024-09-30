@@ -9,7 +9,7 @@
         <div class="line2"></div>
         <div class="line3"></div>
     </div>
-    <div id="closeBtn" class="close-btn">&times;</div>
+    <div id="closeBtn" class="close-btn hide">&times;</div>
     <div class="logo">
         <a href="{{ path('home') }}"><img src="{{ asset('images/logoR.svg') }}" alt="Logo"></a>
     </div>
@@ -38,17 +38,20 @@
     /* Fonction pour ouvrir le menu burger */
     function openNav() {
         sidenav.classList.add("active");
+        closeBtn.classList.remove("hide");
     }
 
     /* Fonction pour fermer le menu burger */
     function closeNav() {
         sidenav.classList.remove("active");
+        closeBtn.classList.add("hide");
     }
 
     // Fermer le menu lorsque l'utilisateur clique sur un lien du menu
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             sidenav.classList.remove('active');
+            closeBtn.classList.add('hide');
         });
     });
 </script>

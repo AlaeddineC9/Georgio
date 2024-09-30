@@ -833,6 +833,12 @@ body {
         color: #6C846B;
         cursor: pointer;
     }
+    .close-btn{
+        display: flex;
+    }
+    .hide {
+        display: none; /* Cache l'élément */
+    }
     
     /* Liens dans le menu */
     #mySidenav .nav-links {
