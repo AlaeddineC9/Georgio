@@ -437,6 +437,7 @@ body {
     display: flex;
     flex-direction: space-between;
     gap: 20px;
+    justify-content: center;
 }
 .socials i {
     font-size: 32px;
