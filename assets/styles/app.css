@@ -804,7 +804,7 @@ body {
 @media (max-width: 576px) {
     #mySidenav {
         height: 45%; /* Hauteur totale de l'écran */
-        width: 100%; /* Largeur initiale fermée */
+        width: 0; /* Largeur initiale fermée */
         position: fixed; /* Positionnement fixe */
         z-index: 2; /* Toujours au-dessus */
         top: 0;
@@ -846,7 +846,7 @@ body {
         text-decoration: none;
         font-size: 25px;
         color: #6C846B;
-        display: contents;
+        display: block;
         transition: 0.3s;
         margin-left: 0px;
     }
@@ -876,7 +876,7 @@ body {
     
     .burger {
         cursor: pointer;
-        display: none;
+        display: flex;
         flex-direction: column;
         justify-content: space-around;
         width: 25px;
