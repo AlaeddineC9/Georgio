@@ -30,10 +30,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Confirmation de votre réservation</h1>
+        <h1>notification de  votre réservation</h1>
         <p>Bonjour {{ booking.name }},</p>
 
-        <p>Nous sommes ravis de vous informer que votre réservation a été confirmée avec succès.</p>
+        <p>Nous sommes ravis de vous informer que votre réservation a été notifiée avec succès.</p>
         <p><strong>Détails de votre réservation :</strong></p>
         <ul>
             <li><strong>Date :</strong> {{ booking.date|date('d/m/Y H:i') }}</li>
@@ -41,8 +41,6 @@
             <li><strong>Email :</strong> {{ booking.email }}</li>
             <li><strong>Téléphone :</strong> {{ booking.phoneNumber }}</li>
         </ul>
-
-        <p>Nous vous attendons avec impatience à l'Auberge Georgio. Si vous avez des questions, n'hésitez pas à nous contacter.</p>
 
         <div class="footer">
             <p>Cet email est généré automatiquement. Merci de ne pas y répondre.</p>
