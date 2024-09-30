@@ -830,9 +830,7 @@ body {
         color: #6C846B;
         cursor: pointer;
     }
-    .close-btn.active{
-        display: block;
-    }
+
     
     /* Liens dans le menu */
     #mySidenav .nav-links {
