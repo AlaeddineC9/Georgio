@@ -26,9 +26,10 @@ class DashboardController extends AbstractDashboardController
     private $entityManager;
     private $mailjetService;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager , MailjetService $mailjetService)
     {
         $this->entityManager = $entityManager;
+        $this->mailjetService = $mailjetService;
     }
 
     
