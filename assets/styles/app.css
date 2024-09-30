@@ -706,7 +706,7 @@ body {
     /* opacity: 0.5; */
     bottom: 0px;
     margin-bottom: 0px;
-    
+    font-size: 26px;
     color:#6C846B;
     z-index: 2;
     text-align: center;
@@ -1187,7 +1187,7 @@ body {
     }
     .service-card h2 {
         height: 80px;
-        font-size: 30px;
+        font-size: 20px;
         text-align: center;
         padding-top: 16px;
     }
