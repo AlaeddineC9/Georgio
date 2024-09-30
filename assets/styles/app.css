@@ -1163,20 +1163,23 @@ menu-item h4 {
     }
     .category-card {
         width: 147px;
-        height: 201px;
+        height: 205px;
         margin-right: 0;
         margin-left: 0px;
+        padding: 8px;
+        margin-bottom: 40px;
     }
     .category-card img{
         width: 100%;
         max-width: 119px;
-        max-height: 126px;
+        max-height: 133px;
     }
     .category-card h2 {
         width: 100%;
         height: 30px;
         font-size: 16px;
         padding-top: 4px;
+        margin-top: 8px;
     }
     .service h1{
         margin-top: -24px;
