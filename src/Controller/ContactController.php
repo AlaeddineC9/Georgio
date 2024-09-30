@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Service\MailjetService;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -34,7 +35,7 @@ public function showContact(Contact $contact, ManagerRegistry $doctrine): Respon
 
 
 #[Route('/contact', name: 'contact')]
-public function contact(Request $request, ManagerRegistry $doctrine, MailerInterface $mailer, ValidatorInterface $validator): Response
+public function contact(Request $request, ManagerRegistry $doctrine,MailjetService $mailjetService, MailerInterface $mailer, ValidatorInterface $validator): Response
 {
     $contact = new Contact();
     $form = $this->createForm(ContactType::class, $contact);
@@ -44,13 +45,6 @@ public function contact(Request $request, ManagerRegistry $doctrine, MailerInter
     $errorMessages = [];
 
     if ($form->isSubmitted()) {
-        // Validation via Symfony Validator
-        // $errors = $validator->validate($contact);
-        // if (count($errors) > 0) {
-        //     foreach ($errors as $error) {
-        //         $errorMessages[] = $error->getMessage();
-        //     }
-        // }
 
         // Validation personnalisée via switch-case pour chaque champ
         switch (true) {
@@ -93,26 +87,36 @@ public function contact(Request $request, ManagerRegistry $doctrine, MailerInter
             $entityManager->flush();
 
             // Envoi de l'email de confirmation au client
-            $clientEmail = (new Email())
-                ->from('restaurant@aubergegeorgio.fr') // Remplacez par votre adresse email d'envoi
-                ->to($contact->getEmail()) // Email du client
-                ->subject('Confirmation de votre message')
-                ->html($this->renderView('emails/contact_confirmation.html.twig', [
-                    'contact' => $contact,
-                ]));
+            $clientHtmlContent = $this->renderView('emails/contact_confirmation.html.twig', [
+                'contact' => $contact,
+            ]);
 
-            $mailer->send($clientEmail);
+            try {
+                $mailjetService->sendEmail(
+                    $contact->getEmail(),
+                    $contact->getName(), // Assurez-vous que la méthode getName() existe
+                    'Confirmation de votre message',
+                    $clientHtmlContent
+                );
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Erreur lors de l\'envoi de l\'email de confirmation : ' . $e->getMessage());
+            }
 
             // Envoi de l'email de notification à l'administrateur
-            $adminEmail = (new Email())
-                ->from('restaurant@aubergegeorgio.fr')
-                ->to('alaeddinechraiti@gmail.com') // Remplacez par l'adresse email de l'administrateur
-                ->subject('Nouveau message de contact')
-                ->html($this->renderView('emails/admin_contact_notification.html.twig', [
-                    'contact' => $contact,
-                ]));
+            $adminHtmlContent = $this->renderView('emails/admin_contact_notification.html.twig', [
+                'contact' => $contact,
+            ]);
 
-            $mailer->send($adminEmail);
+            try {
+                $mailjetService->sendEmail(
+                    'alaeddinechraiti@gmail.com',
+                    'Administrateur',
+                    'Nouveau message de contact',
+                    $adminHtmlContent
+                );
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Erreur lors de l\'envoi de l\'email à l\'administrateur : ' . $e->getMessage());
+            }
 
             // Message flash de succès
             $this->addFlash('success', 'Votre message a été envoyé avec succès. Un email de confirmation vous a été envoyé.');
