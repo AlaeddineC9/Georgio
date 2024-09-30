@@ -143,7 +143,10 @@ $mailer->send($clientEmail);
 
             // Rediriger vers la page d'accueil ou une autre page
             return $this->renderView(
-                'emails/confirmation.html.twig');        }
+                'emails/confirmation.html.twig',[
+                    'booking' => $booking,
+                ]
+            );        }
 
         // Passer les images au template
         return $this->render('home/index.html.twig', [
