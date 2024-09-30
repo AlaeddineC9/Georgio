@@ -848,6 +848,7 @@ body {
         color: #6C846B;
         display: block;
         transition: 0.3s;
+        margin-left: 0px;
     }
     
     #mySidenav .nav-links li a {
@@ -857,7 +858,7 @@ body {
     }
     
     #mySidenav .nav-links li:hover {
-        color: #f1f1f1;
+        color: #ce8181;
     }
     
     .navbar {
