@@ -936,11 +936,12 @@ menu-item h4 {
         height: 40px;
     }
 .hero {
-    height: 73vh;
+    height: 64vh;
 }
     .hero h1 {
         font-size: 43px;
         margin-bottom: 20px;
+        margin-top: 116px;
     }
     .hero h2 {
         font-size: 60px;
@@ -1173,6 +1174,7 @@ menu-item h4 {
         width: 100%;
         max-width: 119px;
         max-height: 133px;
+        margin-top: 4px;
     }
     .category-card h2 {
         width: 100%;
