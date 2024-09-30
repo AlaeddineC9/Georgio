@@ -112,16 +112,21 @@ class HomeController extends AbstractController
             $entityManager->flush();
 
             // Envoyer un email de confirmation au client
-            $clientEmail = (new Email())
-                ->from('restaurant@aubergegeorgio.fr') // Remplacez par votre adresse email d'envoi
-                ->to($booking->getEmail()) // Email du client
-                ->subject('Confirmation de votre réservation')
-                ->html($this->renderView('emails/confirmation.html.twig', [
-                    'booking' => $booking,
-                ])
-            );
+        $clientEmail = (new Email())
+    ->from('restaurant@aubergegeorgio.fr') // Remplacez par votre adresse email d'envoi
+    ->to($booking->getEmail()) // Email du client
+    ->subject('Confirmation de votre réservation')
+    ->html(
+        $this->renderView(
+            'emails/confirmation.html.twig', [
+                'booking' => $booking,
+            ]
+        )
+    );
 
-            $mailer->send($clientEmail);
+// Envoi de l'email
+$mailer->send($clientEmail);
+
              // Ajouter un message flash de succès
             $this->addFlash('success', 'Votre réservation a été enregistrée avec succès. Un email de confirmation a été envoyé. ');
 
