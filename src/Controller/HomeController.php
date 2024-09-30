@@ -120,8 +120,12 @@ class HomeController extends AbstractController
                     'booking' => $booking,
                 ])
             );
-
-            $mailer->send($clientEmail);
+            try {
+                $mailer->send($clientEmail);
+                $this->addFlash('success', 'Votre réservation a été enregistrée avec succès. Un email de confirmation a été envoyé.');
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Une erreur est survenue lors de l\'envoi de l\'email : ' . $e->getMessage());
+            }
              // Ajouter un message flash de succès
             $this->addFlash('success', 'Votre réservation a été enregistrée avec succès. Un email de confirmation a été envoyé. ');
 
