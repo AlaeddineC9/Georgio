@@ -833,7 +833,7 @@ body {
     /* Liens dans le menu */
     #mySidenav .nav-links {
         padding-right: 0px;
-        margin-top: 50px;
+        margin-top: 147px;
         z-index: 1;
         color: #6C846B;
         background-color: #ffffff;
@@ -846,7 +846,7 @@ body {
         text-decoration: none;
         font-size: 25px;
         color: #6C846B;
-        display: block;
+        display: contents;
         transition: 0.3s;
         margin-left: 0px;
     }
