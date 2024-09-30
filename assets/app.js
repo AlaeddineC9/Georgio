@@ -1,5 +1,6 @@
 import { registerVueControllerComponents } from '@symfony/ux-vue';
-
+
+
 // 
 
 import './bootstrap.js';
@@ -13,13 +14,16 @@ import './styles/app.css';
 import './styles/app.css';
 import { Turbo } from "@hotwired/turbo";
 import { Application } from "stimulus";
-import { startStimulusApp } from '@symfony/stimulus-bridge';
+import { startStimulusApp } from '@symfony/stimulus-bridge';
+
 const application = startStimulusApp();
 
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 
-
+
+
+
+
 
 registerVueControllerComponents(require.context('./vue/controllers', true, /\.vue$/));
 registerVueControllerComponents();
