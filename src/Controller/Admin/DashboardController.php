@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\MailjetService;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use App\Entity\Booking;
@@ -23,6 +24,7 @@ class DashboardController extends AbstractDashboardController
 {
 
     private $entityManager;
+    private $mailjetService;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -103,43 +105,57 @@ public function listBookings(EntityManagerInterface $entityManager): Response
 
 
     #[Route('/admin/confirm-booking/{id}', name: 'admin_confirm_booking')]
-    public function confirmBooking(Request $request, Booking $booking, MailerInterface $mailer): Response
+    public function confirmBooking(Request $request, Booking $booking): Response
     {
         $booking->setIsVerified(true);
         $this->entityManager->flush();
 
-        $email = (new Email())
-        ->from('restaurant@aubergegeorgio.fr')
-        ->to($booking->getEmail()) // Email du client
-        ->subject('Confirmation de votre réservation')
-        ->html($this->renderView('emails/booking_confirmation.html.twig', [
+        // Générer le contenu HTML de l'email
+        $htmlContent = $this->renderView('emails/booking_confirmation.html.twig', [
             'booking' => $booking,
-        ]));
+        ]);
 
-        $mailer->send($email);
+        try {
+            // Envoyer l'email de confirmation au client
+            $this->mailjetService->sendEmail(
+                $booking->getEmail(),
+                $booking->getName(),
+                'Confirmation de votre réservation',
+                $htmlContent
+            );
 
-        $this->addFlash('success', 'La réservation a été confirmée avec succès.');
+            $this->addFlash('success', 'La réservation a été confirmée avec succès. Un email de confirmation a été envoyé.');
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'Une erreur est survenue lors de l\'envoi de l\'email : ' . $e->getMessage());
+        }
 
         return $this->redirectToRoute('admin');
     }
 
     #[Route('/admin/deny-booking/{id}', name: 'admin_deny_booking')]
-    public function denyBooking(Request $request, Booking $booking, MailerInterface $mailer): Response
+    public function denyBooking(Request $request, Booking $booking): Response
     {
         $booking->setIsVerified(false);
         $this->entityManager->flush();
 
-        $email = (new Email())
-        ->from('restaurant@aubergegeorgio.fr')
-        ->to($booking->getEmail()) // Email du client
-        ->subject('Réservation refusée')
-        ->html($this->renderView('emails/booking_denied.html.twig', [
+        // Générer le contenu HTML de l'email
+        $htmlContent = $this->renderView('emails/booking_denied.html.twig', [
             'booking' => $booking,
-        ]));
+        ]);
 
-        $mailer->send($email);
+        try {
+            // Envoyer l'email de refus au client
+            $this->mailjetService->sendEmail(
+                $booking->getEmail(),
+                $booking->getName(),
+                'Réservation refusée',
+                $htmlContent
+            );
 
-        $this->addFlash('success', 'La réservation a été refusée avec succès.');
+            $this->addFlash('success', 'La réservation a été refusée avec succès. Un email de notification a été envoyé.');
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'Une erreur est survenue lors de l\'envoi de l\'email : ' . $e->getMessage());
+        }
 
         return $this->redirectToRoute('admin');
     }
