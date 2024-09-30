@@ -538,7 +538,7 @@ menu-item h4 {
     font-weight: bold;
 }
 .menu-item p {
-    font-size: 12px;
+    font-size: 14px;
 }
 .menu-item:hover{
     transform: scale(1.03);
@@ -553,7 +553,7 @@ menu-item h4 {
     justify-content: center;
     text-align: center;
     color: #ffffff;
-    font-family: 'Jacques Francois', serif;
+    font-family: 'serif';
     background-color: #98aa97;
     
 }
