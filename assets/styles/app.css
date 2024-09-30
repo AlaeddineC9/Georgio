@@ -846,7 +846,7 @@ body {
         text-decoration: none;
         font-size: 25px;
         color: #6C846B;
-        display: block;
+        display: contents;
         transition: 0.3s;
         margin-left: 0px;
     }
