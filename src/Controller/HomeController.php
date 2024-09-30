@@ -10,13 +10,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\MailjetService;
+
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(GalerieRepository $galerieRepository, Request $request, ManagerRegistry $doctrine, MailerInterface $mailer): Response
+    public function index(GalerieRepository $galerieRepository, Request $request, ManagerRegistry $doctrine, MailjetService $mailjetService, MailerInterface $mailer): Response
     {
         // Récupérer toutes les images de la galerie
         $images = $galerieRepository->findAll();
@@ -112,39 +114,44 @@ class HomeController extends AbstractController
             $entityManager->flush();
 
             // Envoyer un email de confirmation au client
-        $clientEmail = (new Email())
-    ->from('restaurant@aubergegeorgio.fr') // Remplacez par votre adresse email d'envoi
-    ->to($booking->getEmail()) // Email du client
-    ->subject('Confirmation de votre réservation')
-    ->html(
-        $this->renderView(
-            'emails/confirmation.html.twig', [
+            $htmlContent = $this->renderView('emails/confirmation.html.twig', [
                 'booking' => $booking,
-            ]
-        )
-    );
+            ]);
 
-// Envoi de l'email
-$mailer->send($clientEmail);
+            try {
+                // Envoyer l'email de confirmation au client
+                $mailjetService->sendEmail(
+                    $booking->getEmail(),
+                    $booking->getName(),
+                    'Confirmation de votre réservation',
+                    $htmlContent
+                );
 
-             // Ajouter un message flash de succès
-            $this->addFlash('success', 'Votre réservation a été enregistrée avec succès. Un email de confirmation a été envoyé. ');
-
-            // Envoyer un email de notification à l'administrateur
-            $adminEmail = (new Email())
-                ->from('restaurant@aubergegeorgio.fr')
-                ->to('alaeddinechraiti@gmail.com') // Remplacez par l'adresse email de l'administrateur
-                ->subject('Nouvelle Réservation')
-                ->html($this->renderView('emails/admin_notification.html.twig', [
+                // Envoyer l'email de notification à l'administrateur
+                $adminHtmlContent = $this->renderView('emails/admin_notification.html.twig', [
                     'booking' => $booking,
-                ]));
+                ]);
 
-            $mailer->send($adminEmail);
+                $mailjetService->sendEmail(
+                    'alaeddinechraiti@gmail.com',
+                    'Administrateur',
+                    'Nouvelle Réservation',
+                    $adminHtmlContent
+                );
 
-            // Rediriger vers la page d'accueil ou une autre page
-            return $this->redirectToRoute('home');        }
+                // Ajouter un message flash de succès
+                $this->addFlash('success', 'Votre réservation a été enregistrée avec succès. Un email de confirmation a été envoyé.');
 
-        // Passer les images au template
+            } catch (\Exception $e) {
+                // Gérer les erreurs d'envoi d'email
+                $this->addFlash('error', 'Une erreur est survenue lors de l\'envoi de l\'email : ' . $e->getMessage());
+            }
+
+            // Rediriger vers la page d'accueil ou afficher une page de confirmation
+            return $this->redirectToRoute('home');
+        }
+
+        // Rendu du formulaire avec les images
         return $this->render('home/index.html.twig', [
             'title' => 'Auberge Georgio',
             'images' => $images,
