@@ -804,7 +804,7 @@ body {
 @media (max-width: 576px) {
     #mySidenav {
         height: 45%; /* Hauteur totale de l'écran */
-        width: 0; /* Largeur initiale fermée */
+        width: 100%; /* Largeur initiale fermée */
         position: fixed; /* Positionnement fixe */
         z-index: 2; /* Toujours au-dessus */
         top: 0;
@@ -817,7 +817,8 @@ body {
     
     /* Largeur de la sidebar quand elle est active */
     #mySidenav.active {
-        width: 250px; /* Largeur quand ouverte */
+        width: 100%; /* Largeur quand ouverte */
+        opacity: 0.9;
     }
     
     /* Bouton pour fermer le menu */
@@ -828,6 +829,9 @@ body {
         font-size: 24px;
         color: #6C846B;
         cursor: pointer;
+    }
+    .close-btn.active{
+        display: block;
     }
     
     /* Liens dans le menu */
