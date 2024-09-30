@@ -903,7 +903,14 @@ body {
     .burger.toggle div:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
-    
+    .logo {
+        display: flex;
+        justify-content: center;
+        margin-left: -1529px;
+        text-align: center;
+        width: 80%;
+    }
+
     .logo img {
         height: 40px;
     }
