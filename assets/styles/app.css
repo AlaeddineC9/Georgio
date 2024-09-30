@@ -558,7 +558,7 @@ body {
     margin-right: 10px;
     color:#6C846B;
     font-family: 'Jacques Francois', serif;
-    font-size: 24px;
+    font-size: 36px;
 }
 
 .modal-footer button {
@@ -596,6 +596,7 @@ body {
 .custom-motif-class,.datetimepicker{
     color:#6C846B;
     font-family: 'Jacques Francois', serif;  
+    font-size: 12px;
 }
 ::placeholder {
     color: #888; /* Couleur du texte du placeholder */
