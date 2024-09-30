@@ -14,4 +14,9 @@ class MentionController extends AbstractController
     {
         return $this->render('mentions/mention.html.twig');
     }
+    #[Route('/protection-des-donnees', name: 'protection_donnees')]
+    public function protectionDonnees(): Response
+    {
+        return $this->render('mentions/protection.html.twig');
+    }
 }
