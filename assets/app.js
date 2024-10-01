@@ -1,6 +1,7 @@
 import { registerVueControllerComponents } from '@symfony/ux-vue';
 
 
+
 // 
 
 import './bootstrap.js';
@@ -12,13 +13,15 @@ import './styles/app.css';
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
-import { Turbo } from "@hotwired/turbo";
-Turbo.start();
+import { start } from '@hotwired/turbo';
+start();
 import { TurboDriveAdapter } from "@symfony/stimulus-bridge";
 import { Application } from "stimulus";
 import { startStimulusApp } from '@symfony/stimulus-bridge';
 
 const application = startStimulusApp();
+
+
 
 
 
