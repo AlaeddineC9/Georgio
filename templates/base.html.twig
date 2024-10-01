@@ -32,17 +32,18 @@
 
 
 
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+        <!-- Custom JavaScript -->
+        <script src="{{ asset('build/app.js') }}" defer></script>
 
-
+    
 
     <!-- Webpack Encore CSS Entries -->
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
-
-        <!-- Custom JavaScript -->
-        <script src="{{ asset('build/app.js') }}" defer></script>
 </head>
 <body>
     <!-- Flash Messages Block -->
