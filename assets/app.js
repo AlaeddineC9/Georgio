@@ -1,4 +1,4 @@
-import { registerVueControllerComponents } from '@symfony/ux-vue';
+
 
 
 
@@ -18,6 +18,7 @@ start();
 import { TurboDriveAdapter } from "@symfony/stimulus-bridge";
 import { Application } from "stimulus";
 import { startStimulusApp } from '@symfony/stimulus-bridge';
+import { registerVueControllerComponents } from '@symfony/ux-vue';
 
 const application = startStimulusApp();
 
@@ -31,4 +32,3 @@ const application = startStimulusApp();
 
 
 registerVueControllerComponents(require.context('./vue/controllers', true, /\.vue$/));
-registerVueControllerComponents();
