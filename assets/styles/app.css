@@ -1191,7 +1191,6 @@ menu-item h4 {
     .service p{
         font-size: 16px;
         margin-bottom: 0px;
-        padding-bottom: 0px;
     }
     .service-container {
         flex-direction: column;
@@ -1199,6 +1198,9 @@ menu-item h4 {
         margin-left: 12.5%;
         width: 278px;
         gap: 56px;
+    }
+    .service-card .description-overlay {
+        padding: 3px;
     }
     .service-card {
         width: 85%;
@@ -1214,7 +1216,6 @@ menu-item h4 {
     }
     .description-overlay {
         font-size: 19px;
-        padding: 0px;
     }
     .footer-container {
         padding-left: 20px;
