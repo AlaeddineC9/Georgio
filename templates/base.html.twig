@@ -25,6 +25,10 @@
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
 
+    {% block javascripts %}
+        <!-- Webpack Encore JS Entries -->
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
     <!-- Import Map for Modules -->
     <script type="importmap">
             {
@@ -69,15 +73,5 @@
     <!-- Main Body Content Block -->
     {% block body %}{% endblock %}
 
-    <!-- JavaScript Blocks -->
-    {% block javascripts %}
-        <!-- Webpack Encore JS Entries -->
-        {{ encore_entry_script_tags('app') }}
-
-    
-        
-
-    
-    {% endblock %}
 </body>
 </html>
