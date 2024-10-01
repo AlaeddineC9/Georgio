@@ -1204,15 +1204,17 @@ menu-item h4 {
         width: 85%;
         height: 303px;
         margin-top: 0px;
+        padding: 0px;
     }
     .service-card h2 {
-        height: 80px;
+        height: 64px;
         font-size: 20px;
         text-align: center;
-        padding-top: 16px;
+        padding-top: 10px;
     }
     .description-overlay {
         font-size: 19px;
+        padding: 0px;
     }
     .footer-container {
         padding-left: 20px;
