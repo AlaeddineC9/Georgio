@@ -13,6 +13,8 @@ import './styles/app.css';
  */
 import './styles/app.css';
 import { Turbo } from "@hotwired/turbo";
+Turbo.start();
+import { TurboDriveAdapter } from "@symfony/stimulus-bridge";
 import { Application } from "stimulus";
 import { startStimulusApp } from '@symfony/stimulus-bridge';
 
