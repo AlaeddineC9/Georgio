@@ -744,7 +744,7 @@ body {
 }
 
 .service-card:hover .description-overlay {
-    opacity: 1.2; /* Affiche la description au survol */
+    opacity: 1; /* Affiche la description au survol */
 }
 
 .service-card:hover {
