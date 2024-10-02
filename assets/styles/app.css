@@ -395,7 +395,7 @@ body {
     flex-direction: row;
     justify-content: space-between; /* Espace entre chaque partie */
     align-items: center; /* Aligner les éléments en haut de la div */
-    /* padding: 20px; */
+    margin-top: -44px;
 }
 .fconatct{
     align-items: center;
@@ -439,6 +439,7 @@ body {
     gap: 20px;
     justify-content: center;
     padding-left: 0px;
+    padding-top: 20px;
 }
 .socials i {
     font-size: 32px;
