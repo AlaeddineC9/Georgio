@@ -533,7 +533,7 @@ body {
     color: #6C846B;
     font-family: 'serif';
 }
-menu-item h4 {
+.menu-item h4 {
     font-size: 16px;
     font-weight: bold;
 }
@@ -727,7 +727,7 @@ menu-item h4 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.37); /* Fond semi-transparent */
+    background-color: rgba(255, 255, 255, 0.7); /* Fond semi-transparent */
     color: #6C846B;
     opacity: 0;
     font-family: 'jacques Francois', serif;
