@@ -438,6 +438,7 @@ body {
     flex-direction: space-between;
     gap: 20px;
     justify-content: center;
+    padding-left: 0px;
 }
 .socials i {
     font-size: 32px;
@@ -1270,6 +1271,7 @@ body {
     .socials{
         display: flex;
         justify-content: center;
+        padding-left: 0px;
     }
     .socials i{
         font-size: 16px;
