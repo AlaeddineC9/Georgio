@@ -855,9 +855,10 @@ body {
     /* Liens dans le menu */
     #mySidenav .nav-links {
         padding-right: 0px;
-        margin-top: 147px;
+        margin-top: -86px;
         z-index: 1;
         color: #6C846B;
+        flex-direction: column;
         background-color: #ffffff;
 
 
