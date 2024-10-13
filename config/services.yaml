@@ -24,5 +24,15 @@ services:
         arguments:
             $apiKey: '614d84b6fd64d058f311e04c33f61af5'
             $apiSecret: '313c5d9be555c3e18b606133a48f3499'
+
+    App\Service\BookingService:
+        arguments:
+            $doctrine: '@doctrine'
+
+    App\Twig\AppExtension:
+        arguments:
+            $bookingService: '@App\Service\BookingService'
+        tags:
+            - { name: 'twig.extension' }
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

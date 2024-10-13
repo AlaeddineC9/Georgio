@@ -18,20 +18,14 @@ use Symfony\Component\Mime\Email;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(GalerieRepository $galerieRepository, Request $request, ManagerRegistry $doctrine, MailjetService $mailjetService, MailerInterface $mailer): Response
+    public function index(GalerieRepository $galerieRepository, Request $request, ManagerRegistry $doctrine,BookingService $bookingService, MailjetService $mailjetService, MailerInterface $mailer): Response
     {
         // Récupérer toutes les images de la galerie
         $images = $galerieRepository->findAll();
     
 
 
-        $bookingRepository = $doctrine->getRepository(Booking::class);
-        $bookingStatus = $bookingRepository->findOneBy([]);
-
-        if (!$bookingStatus) {
-            $bookingStatus = new Booking();
-            $bookingStatus->setCanBook(true); // Valeur par défaut si aucun enregistrement trouvé
-        }
+        $bookingStatus = $bookingService->getBookingStatus();
         $booking = new Booking();
         $form = $this->createForm(BookingType::class, $booking);
 
