@@ -387,7 +387,7 @@ body {
     padding-left: 80px;
     padding-right: 80px;
 }
-.footer-bottom button {
+.footer-bottom a {
     color: #6C846B;
     font-size: 1.2rem;
     font-family: 'Jacques Francois', serif;
@@ -403,7 +403,7 @@ body {
     align-items: center;
     text-align: center;
 }
-.fconatct a {
+.fconatct button {
      /* Ajoute du padding pour l'espace intérieur du bouton */
     border-radius: 12px;
     box-shadow: 1px 1px 3px #4e4e4e;
@@ -1237,7 +1237,7 @@ body {
     .footer-bottom p{
         font-size: 8px;
     }
-    .footer-bottom button{
+    .footer-bottom a{
         font-size: 8px;
     }
     .coords {
