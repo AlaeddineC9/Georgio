@@ -148,7 +148,7 @@ class HomeController extends AbstractController
                 ]);
     
                 $mailjetService->sendEmail(
-                    'alaeddinechraiti@gmail.com',
+                    'lepharaon09@hotmail.fr',
                     'Administrateur',
                     'Nouvelle Réservation',
                     $adminHtmlContent

@@ -109,7 +109,7 @@ public function contact(Request $request, ManagerRegistry $doctrine,MailjetServi
 
             try {
                 $mailjetService->sendEmail(
-                    'alaeddinechraiti@gmail.com',
+                    'lepharaon09@hotmail.fr',
                     'Administrateur',
                     'Nouveau message de contact',
                     $adminHtmlContent
