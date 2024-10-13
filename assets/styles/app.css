@@ -187,7 +187,7 @@ body {
 .carousel-item img {
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 50px;
+    margin-left: 250px;
     margin-right: 50px;
     width: 500px;
     height: 32rem;
@@ -212,16 +212,7 @@ body {
     padding-bottom: 32px;
 }
 
-.carousel-control-prev, .carousel-control-next {
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    width: 128px;
-    height: 128px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-}
+
 
 .carousel-control-prev {
     left: 350px;
@@ -247,6 +238,8 @@ body {
 .example {
     background-image: url('../images/fond2.jpg');
     margin-top: 90px;
+    padding-left: 46px;
+    padding-right: 46px;
 }
 .example p {
     font-size: 1.5rem;
@@ -1018,16 +1011,6 @@ body {
         margin-bottom: 50px;
         margin-left: 92px;
         margin-right: 50px;
-    }
-    .carousel-control-prev, .carousel-control-next {
-        width: 50px;
-        height: 50px;
-        top: 295px;
-        background-color: rgb(255, 255, 255);
-        border-radius: 50%;
-        z-index: 2;
-        opacity: 0.5;
-        transition: opacity .15s ease;
     }
 
 
