@@ -59,7 +59,7 @@
                 </div>
                 </div>
                 <div class="modal-body">
-                    {{ form_start(reservationForm) }}
+                    {{ form_start(reservationForm, {'action': path('booking'), 'method': 'POST'}) }}
                     
                     <div class="form-group">
                         {{ form_row(reservationForm.name) }}
