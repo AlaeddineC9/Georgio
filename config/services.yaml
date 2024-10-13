@@ -29,6 +29,10 @@ services:
         arguments:
             $doctrine: '@doctrine'
 
+    App\Service\ReservationFormService:
+        arguments:
+            $formFactory: '@form.factory'
+
     App\Twig\AppExtension:
         arguments:
             $bookingService: '@App\Service\BookingService'
