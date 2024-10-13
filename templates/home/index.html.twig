@@ -18,39 +18,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <div class="test">
-                    <h5 class="modal-title" id="reservationModalLabel">Réserver une Table</h5>
-                    </div>
-                    <div class="centre">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                </div>
-                <div class="modal-body">
-                    {{ form_start(reservationForm) }}
-                    
-                    <div class="form-group">
-                        {{ form_row(reservationForm.name) }}
-                        {{ form_errors(reservationForm.name) }}
-                        </div>
-                        {{ form_row(reservationForm.phone_number) }}
-                        {{ form_row(reservationForm.email) }}
-                        {{ form_row(reservationForm.nb_guest) }}
-                        {{ form_row(reservationForm.date) }}
-                        {{ form_row(reservationForm.motif)}}
-                        {{ form_row(reservationForm.special_request) }}
-                        </div>
-                        <div class="modal-footer">
-                        <button type="submit" class="">Envoyer la Réservation</button>
-                    {{ form_end(reservationForm) }}
-                        </div>
-                {# </div> #}
-            </div>
-        </div>
-    </div>
+    
 
     <div class="info">
         <section>

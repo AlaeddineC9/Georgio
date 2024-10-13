@@ -1,33 +1,33 @@
-{% extends 'base.html.twig' %}
-{% block body %}
-
 <footer class="footer">
-    <div class = "footer-container">
+    <div class="footer-container">
         <div class="socials">
-                <a href="https://www.facebook.com/p/Auberge-georgio-100075847345649/?_rdr"><i class="fa-brands fa-facebook" style="color: #6C846B;"></i></a>
-                <a href="https://www.instagram.com/auberge_georgio/"><i class="fab fa-instagram" style="color: #6C846B;"></i></a>
+            <a href="https://www.facebook.com/p/Auberge-georgio-100075847345649/?_rdr">
+                <i class="fa-brands fa-facebook" style="color: #6C846B;"></i>
+            </a>
+            <a href="https://www.instagram.com/auberge_georgio/">
+                <i class="fab fa-instagram" style="color: #6C846B;"></i>
+            </a>
         </div>
-    <div class="footer-content">
-        <div class="coords">
-            <p><i class="fas fa-map-marker-alt"></i> 74 rue Auguste Rey 95390 Saint-Prix</p>
-            <p><i class="fas fa-phone-alt"></i> 07.65.72.22.88</p>
-            <p><i class="fas fa-envelope"></i> lepharaon09@hotmail.fr</p>
+        <div class="footer-content">
+            <div class="coords">
+                <p><i class="fas fa-map-marker-alt"></i> 74 rue Auguste Rey 95390 Saint-Prix</p>
+                <p><i class="fas fa-phone-alt"></i> 07.65.72.22.88</p>
+                <p><i class="fas fa-envelope"></i> lepharaon09@hotmail.fr</p>
+            </div>
+            <div class="fconatct">
+                {% if bookingStatus and bookingStatus.canBook %}
+                    <button type="button" class="object" data-bs-toggle="modal" data-bs-target="#reservationModal">
+                        Réserver
+                    </button>
+                {% else %}
+                    <p>Les réservations sont actuellement désactivées.</p>
+                {% endif %}
+            </div>
         </div>
-        <div class="fconatct">
-            {% if bookingStatus and bookingStatus.canBook %}
-    <button type="button" class="object" data-bs-toggle="modal" data-bs-target="#reservationModal">
-        Réserver
-    </button>
-{% else %}
-    <p>Les réservations sont actuellement désactivées.</p>
-{% endif %}
+        <div class="footer-bottom">
+            <p><a href="{{ path('mentions_legales') }}">Mentions légales</a></p>
+            <p>&copy; Auberge Georgio | Designed and created by <a href="#">ALTECH</a></p>
+            <p><a href="{{ path('protection_donnees') }}">Protection des données</a></p>
         </div>
     </div>
-            <div class="footer-bottom">
-                <p><a href="{{ path('mentions_legales') }}">Mentions légales</a></p>
-                <P> &copy; Auberge Georgio | Designed and created by <a href="#">ALTECH</a></P>
-                <p> <a href="{{ path('protection_donnees') }}">Protection des données</a></p>
-            </div>
-            </div>
 </footer>
-{% endblock %}
