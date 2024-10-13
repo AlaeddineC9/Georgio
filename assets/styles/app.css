@@ -224,17 +224,17 @@ body {
 }
 
 .carousel-control-prev {
-    left: 350px;
+    left: 64px;
 }
 
 .carousel-control-next {
-    right: 350px;
+    right: 64px;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
     filter: invert(100%); 
     display: inline-block;
-    width: 100%; 
+    width: 50%; 
     height: 60%; 
     background-color: transparent; 
     border: none;
