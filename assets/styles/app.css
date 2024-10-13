@@ -403,7 +403,7 @@ body {
     align-items: center;
     text-align: center;
 }
-.fconatct button {
+.fconatct object {
      /* Ajoute du padding pour l'espace intérieur du bouton */
     border-radius: 12px;
     box-shadow: 1px 1px 3px #4e4e4e;
