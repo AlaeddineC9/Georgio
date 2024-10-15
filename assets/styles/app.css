@@ -469,6 +469,7 @@ body {
 
 .mb-3 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 /* Styles pour les messages d'erreur */
