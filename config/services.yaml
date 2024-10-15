@@ -38,5 +38,15 @@ services:
             $bookingService: '@App\Service\BookingService'
         tags:
             - { name: 'twig.extension' }
+            
+    App\Validator\Constraints\BookingDateValidator:
+        tags:
+            - { name: validator.constraint_validator, alias: 'booking_date_validator' }
+
+    App\Validator\Constraints\AvailableSeatsValidator:
+        arguments:
+            - '@App\Repository\BookingRepository'
+        tags:
+            - { name: validator.constraint_validator, alias: 'available_seats_validator' }
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

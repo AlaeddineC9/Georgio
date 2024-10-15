@@ -12,6 +12,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\Constraints\BookingDate;
+use App\Validator\Constraints\AvailableSeats;
+
 
 class BookingType extends AbstractType
 {
@@ -25,7 +28,12 @@ class BookingType extends AbstractType
             ],
             'constraints' => [
                 new Assert\NotBlank(['message' => 'Le nom ne doit pas être vide.']),
-                new Assert\Length(['max' => 80, 'maxMessage' => 'Le nom ne peut pas dépasser 80 caractères.']),
+                new Assert\Length([ 
+                'min' => 2,
+                'max' => 80,
+                'minMessage' => 'Le nom doit comporter au moins {{ limit }} caractères.',
+                'maxMessage' => 'Le nom ne peut pas dépasser {{ limit }} caractères.',
+            ]),
                 new Assert\Regex([
                     'pattern' => '/^[a-zA-Z0-9\s]+$/',
                     'message' => 'Le nom ne doit contenir que des lettres, des chiffres et des espaces.',
@@ -38,6 +46,10 @@ class BookingType extends AbstractType
                 'placeholder' => 'Entrez votre numéro de téléphone'],
                 'constraints' => [
                 new Assert\NotBlank(['message' => 'Le numéro de téléphone ne doit pas être vide.']),
+                new Assert\Length([
+                    'min' => 10,
+                    'minMessage' => 'Le numéro de téléphone doit comporter au moins {{ limit }} caractères.',
+                ]),
                 new Assert\Regex([
             'pattern' => '/^[0-9\s\+\-]+$/',
             'message' => 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et les caractères "+" ou "-".',
@@ -53,6 +65,18 @@ class BookingType extends AbstractType
                 'label' => 'Nombre d\'invités : ',
                 'attr' => ['class' => 'form-control custom-guest-class',
                 'placeholder' => 'Entrez le nombre d\'invités'],
+                'constraints' => [
+                        new Assert\NotBlank(['message' => 'Le nombre d\'invités ne doit pas être vide.']),
+                        new Assert\GreaterThan([
+                            'value' => 0,
+                            'message' => 'Le nombre d\'invités doit être supérieur à 0.',
+                        ]),
+                        new Assert\LessThanOrEqual([
+                            'value' => 60,
+                            'message' => 'Le nombre d\'invités ne peut pas dépasser 60.',
+                        ]),
+                        new AvailableSeats(),
+    ],
             ])
             ->add('date', DateTimeType::class, [
                 'label' => 'Date et Heure : ',
@@ -60,6 +84,9 @@ class BookingType extends AbstractType
                 
                 'attr' => ['class' => 'form-control datetimepicker',
                 'placeholder' => 'Entrez la date et l\'heure de la réservation'],
+                'constraints' => [
+                            new BookingDate(),
+                        ],
             ])
 
             ->add('motif', ChoiceType::class, [

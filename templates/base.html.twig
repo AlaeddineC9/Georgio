@@ -59,26 +59,45 @@
                 </div>
                 </div>
                 <div class="modal-body">
-                    {{ form_start(reservationForm, {'action': path('booking'), 'method': 'POST'}) }}
-                    
-                    <div class="form-group">
+                {{ form_start(reservationForm, {'action': path('booking'), 'method': 'POST'}) }}
+                        <div class="form-group">
                         {{ form_row(reservationForm.name) }}
-                        {{ form_errors(reservationForm.name) }}
+                    </div>
+                    <div class="form-group">
+                            {{ form_row(reservationForm.phone_number) }}
+                     </div>
+                        <div class="form-group">
+                            {{ form_row(reservationForm.email) }}
                         </div>
-                        {{ form_row(reservationForm.phone_number) }}
-                        {{ form_row(reservationForm.email) }}
-                        {{ form_row(reservationForm.nb_guest) }}
-                        {{ form_row(reservationForm.date) }}
-                        {{ form_row(reservationForm.motif)}}
-                        {{ form_row(reservationForm.special_request) }}
+                        <div class="form-group">
+                            {{ form_row(reservationForm.nb_guest) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(reservationForm.date) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(reservationForm.motif) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(reservationForm.special_request) }}
                         </div>
                         <div class="modal-footer">
-                        <button type="submit" class="">Envoyer la Réservation</button>
-                    {{ form_end(reservationForm) }}
+                            <button type="submit" class="btn btn-primary">Envoyer la Réservation</button>
                         </div>
+                        {{ form_end(reservationForm) }}
+                    </div>
                 {# </div> #}
             </div>
         </div>
     </div>
+    <!-- Script pour afficher le modal automatiquement -->
+    {% if showReservationModal is defined and showReservationModal %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var myModal = new bootstrap.Modal(document.getElementById('reservationModal'));
+                myModal.show();
+            });
+        </script>
+    {% endif %}
 </body>
 </html>

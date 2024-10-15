@@ -25,6 +25,8 @@ class HomeController extends AbstractController
         GalerieRepository $galerieRepository,
         BookingService $bookingService
     ): Response {
+        $booking = new Booking();
+        $form = $this->createForm(BookingType::class, $booking);
         // Récupérer les images, le statut de réservation, etc.
         $images = $galerieRepository->findAll();
         $bookingStatus = $bookingService->getBookingStatus();
@@ -34,6 +36,7 @@ class HomeController extends AbstractController
             'title' => 'Auberge Georgio',
             'images' => $images,
             'bookingStatus' => $bookingStatus,
+            'reservationForm' => $form->createView(),
         ]);
     }
     #[Route('/booking', name: 'booking', methods: ['POST'])]
@@ -41,7 +44,8 @@ class HomeController extends AbstractController
         Request $request,
         ManagerRegistry $doctrine,
         BookingService $bookingService,
-        MailjetService $mailjetService
+        MailjetService $mailjetService,
+        GalerieRepository $galerieRepository
     ): Response {
         $booking = new Booking();
         $form = $this->createForm(BookingType::class, $booking);
@@ -167,8 +171,16 @@ class HomeController extends AbstractController
         }
     
         // En cas d'échec du formulaire, rediriger avec un message d'erreur
-        $this->addFlash('error', 'Une erreur est survenue lors de la soumission du formulaire.');
-        return $this->redirectToRoute('home');
+        $images = $galerieRepository->findAll();
+        $bookingStatus = $bookingService->getBookingStatus();
+
+        return $this->render('home/index.html.twig', [
+            'title' => 'Auberge Georgio',
+            'images' => $images,
+            'bookingStatus' => $bookingStatus,
+            'reservationForm' => $form->createView(),
+            'showReservationModal' => true,
+        ]);
     }
 }
 
