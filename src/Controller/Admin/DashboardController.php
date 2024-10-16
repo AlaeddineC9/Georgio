@@ -17,6 +17,7 @@ use App\Entity\Service;
 use App\Entity\Category;
 use App\Entity\Menu;
 use App\Entity\Client;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -199,8 +200,8 @@ public function listBookings(EntityManagerInterface $entityManager): Response
     {
         $newContactsCount = $this->getNewContactsCount();
         $newBookingsCount = $this->getNewBookingsCount();
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('client', 'fa fa-user', Client::class);
+        yield MenuItem::linkToDashboard('Acceuil', 'fa fa-home');
+        // yield MenuItem::linkToCrud('client', 'fa fa-user', Client::class);
         yield MenuItem::linkToCrud('galerie', 'fa fa-image', Galerie::class);
         
         yield MenuItem::linkToCrud(
@@ -211,12 +212,13 @@ public function listBookings(EntityManagerInterface $entityManager): Response
         
         
         yield MenuItem::linkToCrud(
-            'Bookings ' . ($newBookingsCount > 0 ? sprintf('<span class="badge badge-danger">%d</span>', $newBookingsCount) : ''),
+            'Reservations ' . ($newBookingsCount > 0 ? sprintf('<span class="badge badge-danger">%d</span>', $newBookingsCount) : ''),
             'fa fa-bed',
             Booking::class
-        );        yield MenuItem::linkToCrud('service', 'fa fa-bed', Service::class);
+        );        yield MenuItem::linkToCrud('services', 'fas fa-tools', Service::class);
         yield MenuItem::linkToCrud('Categories', 'fa fa-list', Category::class);
         yield MenuItem::linkToCrud('Menu', 'fa fa-utensils', Menu::class);
+        // yield MenuItem::linkToCrud('Utilisateur', 'fa fa-user', User::class);
     }
 
     private function getNewContactsCount(): int
