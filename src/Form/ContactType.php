@@ -25,7 +25,12 @@ class ContactType extends AbstractType
             'id'=> 'name-input'],
                 'constraints' => [
                 new Assert\NotBlank(['message' => 'Le nom ne doit pas être vide.']),
-                new Assert\Length(['max' => 80, 'maxMessage' => 'Le nom ne peut pas dépasser 80 caractères.']),
+                new Assert\Length([ 
+                    'min' => 2,
+                    'max' => 80,
+                    'minMessage' => 'Le nom doit comporter au moins {{ limit }} caractères.',
+                    'maxMessage' => 'Le nom ne peut pas dépasser {{ limit }} caractères.',
+                ]),
                 new Assert\Regex([
                     'pattern' => '/^[a-zA-Z0-9\s]+$/',
                     'message' => 'Le nom ne doit contenir que des lettres, des chiffres et des espaces.',
@@ -45,6 +50,10 @@ class ContactType extends AbstractType
             'id'=> 'phone-input'],
                 'constraints' => [
                 new Assert\NotBlank(['message' => 'Le numéro de téléphone ne doit pas être vide.']),
+                new Assert\Length([
+                    'min' => 10,
+                    'minMessage' => 'Le numéro de téléphone doit comporter au moins {{ limit }} caractères.',
+                ]),
                 new Assert\Regex([
             'pattern' => '/^[0-9\s\+\-]+$/',
             'message' => 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et les caractères "+" ou "-".',
@@ -56,6 +65,20 @@ class ContactType extends AbstractType
                 'attr' => ['placeholder' => 'Entrez votre message',
                 'class' => 'form-control custom-message-class',
             'id'=> 'message-input'],
+                'constraints' => [
+                new Assert\NotBlank(['message' => 'Le message ne doit pas être vide.']),
+                new Assert\Length([ 
+                    'min' => 3,
+                    'max' => 500,
+                    'minMessage' => 'Le message doit comporter au moins {{ limit }} caractères.',
+                    'maxMessage' => 'Le message ne peut pas dépasser {{ limit }} caractères.',
+                ]),
+                new Assert\Regex([
+                    'pattern' => '/^[a-zA-Z0-9\s.,!?\'"()-]*$/u',
+                    'message' => 'Le message contient des caractères non autorisés.',
+                ]),
+
+            ],
             ]);
     }
 
